@@ -117,12 +117,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
-<<<<<<< HEAD
-    nokogiri (1.12.5-x86_64-linux)
-      racc (~> 1.4)
-=======
     orm_adapter (0.5.0)
->>>>>>> 1f01a30b674af53ed81db13594c8b9c59c41244f
     pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -237,7 +232,6 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
-  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
@@ -269,4 +263,4 @@ RUBY VERSION
    ruby 2.7.3p183
 
 BUNDLED WITH
-   2.2.31
+   2.2.7
