@@ -1,0 +1,12 @@
+<h1>Create a new food offer</h1>
+
+
+<%= form_for(@food_offer) do |offer| %>
+  <%= offer.label :product_name %>
+  <%= offer.text_field :product_name %>
+  <%= offer.label :category %>
+  <%= offer.text_field :category %>
+  <%= offer.label :unit %>
+  <%= offer.number_field :unit %>
+  <%= offer.submit %>
+<% end %>
