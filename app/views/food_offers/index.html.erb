@@ -1,0 +1,12 @@
+
+<h1>Food offers <% @food_offers %></h1>
+
+<% @food_offers.each do |offer| %>
+
+<p>Product name: <%=  offer.product_name %></p>
+<p>Product category: <%=  offer.category %></p>
+<p>Quantity: <%=  offer.unit %></p>
+
+<% end %>
+
+<%= link_to("Create new food offer", new_food_offer_url) %>
