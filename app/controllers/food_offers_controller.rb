@@ -1,0 +1,6 @@
+class FoodOffersController < ApplicationController
+
+
+
+
+end
