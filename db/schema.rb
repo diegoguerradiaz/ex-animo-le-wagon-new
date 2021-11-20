@@ -10,10 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_145140) do
+
+ActiveRecord::Schema.define(version: 2021_11_20_145530) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
 
   create_table "food_offers", force: :cascade do |t|
     t.string "category"
@@ -23,6 +26,16 @@ ActiveRecord::Schema.define(version: 2021_11_20_145140) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_food_offers_on_user_id"
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "start_order_date"
+    t.datetime "end_order_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.string "stage"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,5 +54,9 @@ ActiveRecord::Schema.define(version: 2021_11_20_145140) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+
   add_foreign_key "food_offers", "users"
+
+  add_foreign_key "orders", "users"
+
 end

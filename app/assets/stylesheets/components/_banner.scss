@@ -1,0 +1,13 @@
+.banner {
+  display: flex;
+  .banner-body {
+    display: flex;
+    margin-left: 100px;
+    justify-content:space-evenly;
+    .banner-text {
+      font-size: 65px;
+      font-weight: lighter;
+      color: black;
+    }
+  }
+}
