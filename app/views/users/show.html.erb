@@ -1,78 +1,87 @@
-<div class="banner bg-white">
+<div class="banner">
   <div class="banner-body align-items-center">
     <div class="banner-text mr-4 pl-4 pr-4">
-      <p>My profile</p>
+      <p>Profile</p>
     </div>
   </div>
 </div>
 
-<div class="container emp-profile">
-            <form method="post">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-img">
-                          <%= cl_image_tag "ex-mood/avatar.png" %>
-                            <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="profile-head">
-                          <h5> <%= @user.company_name %></h5>
-                          <h6><%= @user.category %></h6>
-                          <p class="proile-rating">RANKINGS : <span>8/10</span></p>
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-work">
-                            <p>Phone Number</p>
-                            <a href=""><%= @user.phone_number %></a><br/>
-                            <p>Email</p>
-                            <a href=""><%= @user.email %></a><br/>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="tab-content profile-tab" id="myTabContent">
-                          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="row">
-                              <div class="col-md-6">
-                                <label>User ID</label>
-                              </div>
-                              <div class="col-md-6">
-                                <p><%= @user.id %></p>
-                              </div>
-                            </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Role</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><%= @user.role %></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Password</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p> ******* </p>
-                                            </div>
-                                        </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
+
+<div class="container emp-profile border p-5">
+    <form method="post">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-img align-items-center">
+            <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637432969/ex-animo/avatar.png",width: 100, height: 100 %>
+            <button class="btn btn-sm btn-outline-success">
+              Change Photo
+            </button>
+          </div>
         </div>
+
+        <div class="col-md-4">
+          <div class="profile-head">
+            <h5> <%= @user.company_name %></h5>
+            <h6><%= @user.category %></h6>
+            <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                </li>
+              </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit"/>
+            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Delete"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-work">
+            <p>Phone Number</p>
+            <a href=""><%= @user.phone_number %></a><br/>
+            <p>Email</p>
+            <a href=""><%= @user.email %></a><br/>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <label>User ID</label>
+                </div>
+                <div class="col-md-6">
+                  <p><%= @user.id %></p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                    <label>Role</label>
+                </div>
+                <div class="col-md-6">
+                    <p><%= @user.role %></p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                    <label>Password</label>
+                </div>
+                <div class="col-md-6">
+                    <p> ******* </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
