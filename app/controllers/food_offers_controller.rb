@@ -13,7 +13,7 @@ class FoodOffersController < ApplicationController
     # @user = User.find(params[user_id])
     # @food_offer.user_id = @user
     @food_offer.save
-    # redirect_to food_offer_path(@food_offer)
+    redirect_to food_offers_path(@food_offer)
   end
 
   private
