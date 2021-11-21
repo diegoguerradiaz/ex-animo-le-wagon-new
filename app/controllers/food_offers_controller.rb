@@ -9,24 +9,30 @@ class FoodOffersController < ApplicationController
 
   def create
     @food_offer = FoodOffer.new(food_offer_params)
-    @food_offer.user = current_user
-    # @user = User.find(params[user_id])
-    # @food_offer.user_id = @user
-    @food_offer.save
-    redirect_to food_offers_path(@food_offer)
+    @food_offer.user_id = current_user.id
+
+    if @food_offer.save!
+      redirect_to food_offers_path(@food_offer)
+    else
+      render :new
+    end
   end
 
   def edit
-    @food_offer = FoodOffer.find(params[:id])
+    find_offer
   end
 
   def update
-    @food_offer = FoodOffer.find(params[:id])
+  find_offer
     @food_offer.update(food_offer_params)
     redirect_to food_offers_path(@food_offer)
   end
 
   private
+
+  def find_offer
+    @food_offer = FoodOffer.find(params[:id])
+  end
 
   def food_offer_params
     params.require(:food_offer).permit(:category, :product_name, :unit)

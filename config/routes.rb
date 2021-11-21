@@ -10,4 +10,9 @@ Rails.application.routes.draw do
 
   resources :food_offers
   resources :orders
+
+  namespace :my do
+    resources :food_offers, only: [:index]
+  end
+
 end
