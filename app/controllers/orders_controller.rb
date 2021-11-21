@@ -5,9 +5,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    # @offer = Offer.find(params[:offer_id])
+    @offer = Offer.find(params[:offer_id])
     @order = Order.new(order_params)
-    # @order.offer = @offer
+    @order.offer = @offer
     @order.user = current_user
 
     if @order.save!

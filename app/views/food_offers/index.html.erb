@@ -1,13 +1,19 @@
 <h1>Discover all the food offers</h1>
 
 <div class="row">
-  <div class="col-12 border">
+  <div class="col-8 border my-4">
     <% @food_offers.each do |offer| %>
 
     <p>Product name: <%=  offer.product_name %></p>
     <p>Product category: <%=  offer.category %></p>
     <p>Quantity: <%=  offer.unit %></p>
     <p>Provider: <%= offer.user.company_name %></p>
+
+    <%= link_to food_offer_path(offer) do %>
+      <button class="btn btn-sm btn-outline-dark">
+        Discover
+      </button>
+    <% end %>
     <% end %>
   </div>
 </div>

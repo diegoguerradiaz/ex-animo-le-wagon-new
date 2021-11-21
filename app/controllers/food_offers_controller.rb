@@ -15,6 +15,11 @@ class FoodOffersController < ApplicationController
     end
   end
 
+  def show
+    find_offer
+    @order = Order.new
+  end
+
   def edit
     find_offer
   end
