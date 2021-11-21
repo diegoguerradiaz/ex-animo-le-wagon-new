@@ -2,6 +2,8 @@ class FoodOffersController < ApplicationController
 
   def new
     @food_offer = FoodOffer.new
+    @products = Product.new
+
   end
 
   def create
