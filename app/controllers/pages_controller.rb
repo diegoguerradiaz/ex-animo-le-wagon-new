@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
 
   def home
+    if current_user.role = "Shelter"
+      @food_offers = FoodOffer.all
+      render "food_offers/index"
+    end
   end
 
   def about_us

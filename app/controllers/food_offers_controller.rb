@@ -1,7 +1,4 @@
 class FoodOffersController < ApplicationController
-  def index
-    @food_offers = FoodOffer.all
-  end
 
   def new
     @food_offer = FoodOffer.new
@@ -12,7 +9,7 @@ class FoodOffersController < ApplicationController
     @food_offer.user_id = current_user.id
 
     if @food_offer.save!
-      redirect_to food_offers_path(@food_offer)
+      redirect_to my_food_offers_path(@food_offer)
     else
       render :new
     end
