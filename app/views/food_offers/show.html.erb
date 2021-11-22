@@ -2,3 +2,10 @@
 <p>Product category: <%=  @food_offer.category %></p>
 <p>Quantity: <%=  @food_offer.total_unit %></p>
 <p>Provider: <%= @food_offer.user.company_name %></p>
+
+<h4>Select the dates you want to pick up the donation</h4>
+<%= simple_form_for([@food_offer,@order]) do |f| %>
+  <%= f.input :start_order_date, label: "Start Date", as: :date, input_html: {class: "datepicker"} %>
+  <%= f.input :end_order_date, label: "End Date", as: :date, input_html: {class: "datepicker"} %>
+  <%= f.submit "Request", class: "btn btn-outline-success" %>
+<% end %>

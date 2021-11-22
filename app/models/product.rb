@@ -1,3 +1,3 @@
 class Product < ApplicationRecord
-  belongs_to :food_offer
+  belongs_to :food_offers
 end

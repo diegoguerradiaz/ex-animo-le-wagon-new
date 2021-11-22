@@ -9,11 +9,7 @@
     <p>Quantity: <%=  offer.total_unit %></p>
     <p>Provider: <%= offer.user.company_name %></p>
 
-    <%= link_to food_offer_path(offer) do %>
-      <button class="btn btn-sm btn-outline-dark">
-        Discover
-      </button>
-    <% end %>
-    <% end %>
+    <%= link_to "Discover", food_offer_path(offer) %>
+  <% end %>
   </div>
 </div>

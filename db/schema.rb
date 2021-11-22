@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_195318) do
+ActiveRecord::Schema.define(version: 2021_11_22_004513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2021_11_21_195318) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.string "stage"
-    t.bigint "food_offers_id"
-    t.index ["food_offers_id"], name: "index_orders_on_food_offers_id"
+    t.bigint "food_offer_id"
+    t.index ["food_offer_id"], name: "index_orders_on_food_offer_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_11_21_195318) do
 
   add_foreign_key "food_offers", "products", column: "products_id"
   add_foreign_key "food_offers", "users"
-  add_foreign_key "orders", "food_offers", column: "food_offers_id"
+  add_foreign_key "orders", "food_offers"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "food_offers"
 end

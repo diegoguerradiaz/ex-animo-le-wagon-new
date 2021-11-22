@@ -13,12 +13,13 @@ Rails.application.routes.draw do
 
 
 
-  resources :food_offers
-  resources :orders
+  resources :food_offers do
+    resources :orders, only: [:create]
+  end
 
   namespace :my do
     resources :food_offers, only: [:index]
-    resources :orders, only: [:index]
+    resources :orders, only: [:index,:update]
   end
 
 end

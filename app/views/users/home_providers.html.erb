@@ -1,0 +1,67 @@
+<%= render template: "users/show" %>
+
+<div class="text-center my-4">
+  <h3>See all the updates of your donations!</h3>
+</div>
+
+<div class="wrapper-dashboard m-4 p-5">
+  <div class="row">
+    <div class="col-lg-4">
+      <ul class="list-unstyled">
+        <% @food_offers.each do |offer| %>
+          <% offer.orders.each do |order| %>
+            <li class="padded dashboard border p-4">
+                <% if order.stage === "Pending Validation" %>
+
+                  <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637432969/ex-animo/avatar.png",width: 100, height: 100 %>
+
+                  <div class='product-body'>
+
+                    <h3> <strong><%= order.user.company_name %> </strong>requested your donation ! </h3>
+                    <p> Dates available : <%= order.start_order_date %> and <%= order.end_order_date %> </p>
+
+                  </div>
+
+
+                  <div>
+                    <%= link_to "Accept ", my_order_path(order, order: {stage: "Confirmed"}), method: :patch, class: "btn btn-outline-success"%>
+                    <%= link_to "Decline", my_order_path(order, order: {stage: "Canceled"}), method: :patch, class: "btn btn-outline-danger"%>
+                  </div>
+
+                <% elsif order.stage === "Confirmed"  %>
+
+                  <div class='product-body'>
+
+                    <h3> <strong><%= order.user.company_name %> </strong>received your donation ! </h3>
+                    <p> Dates : <%= order.start_order_date %> and <%= order.end_order_date %> </p>
+
+                    <ul class="list-group list-group-horizontal product-controls hidden-sm hidden-xs">
+                      <li class="list-group-item list-group-item-success">
+                        Completed
+                      </li>
+                    </ul>
+
+                  </div>
+                <% else %>
+
+                  <div class='product-body'>
+
+                    <h3> <strong><%= order.user.company_name %> </strong>canceled your donation 😔 </h3>
+                    <p> Dates : <%= order.start_order_date %> and <%= order.end_order_date %> </p>
+                    <ul class="list-group list-group-horizontal product-controls hidden-sm hidden-xs">
+                      <li class="list-group-item list-group-item-danger">
+                       Canceled
+                      </li>
+                    </ul>
+
+                  </div>
+
+                <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+</div>

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def home_providers
     find_user
-    @orders = @user.orders
+    @food_offers = current_user.food_offers
   end
 
   def home_shelters

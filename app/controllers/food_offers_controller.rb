@@ -2,8 +2,6 @@ class FoodOffersController < ApplicationController
 
   def new
     @food_offer = FoodOffer.new
-    @products = Product.new
-
   end
 
   def create
@@ -27,7 +25,7 @@ class FoodOffersController < ApplicationController
   end
 
   def update
-  find_offer
+    find_offer
     @food_offer.update(food_offer_params)
     redirect_to food_offers_path(@food_offer)
   end
