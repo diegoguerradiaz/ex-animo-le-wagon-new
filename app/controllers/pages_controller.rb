@@ -9,9 +9,9 @@ class PagesController < ApplicationController
   def contact_us
   end
 
-  def for_providers
+  def shelters
   end
 
-  def for_shelters
+  def providers
   end
 end

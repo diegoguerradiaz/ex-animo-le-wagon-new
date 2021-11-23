@@ -20,14 +20,16 @@ class OrdersController < ApplicationController
 
   def destroy
     set_order
+    @order.destroy
   end
 
-  def update
-    set_order
-    @order.stage = "Pending Validation"
-    @order.update(order_params)
-    redirect_to orders_path(@order), notice: 'Updated'
-  end
+
+  # def update
+  #   set_order
+  #   @order.stage = "Pending Validation"
+  #   @order.update(order_params)
+  #   redirect_to orders_path(@order), notice: 'Updated'
+  # end
 
   private
   def set_order

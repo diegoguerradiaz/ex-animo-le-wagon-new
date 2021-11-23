@@ -1,9 +1,11 @@
 class My::OrdersController < ApplicationController
 
+  # See all the orders from the current User
   def index
     @orders = current_user.orders
   end
 
+  # Finds the order & updates the 'Stage' field of the Order
   def update
     set_order
     @order.update(set_params)

@@ -6,20 +6,20 @@ Rails.application.routes.draw do
   get '/users/:id/home_shelters', to: 'users#home_shelters', as: 'home_shelters'
 
   root to: 'pages#home'
-  get 'for_providers', to: 'pages#for_providers'
-  get 'for_shelters', to: 'pages#for_shelters'
+  get 'providers', to: 'pages#providers'
+  get 'shelters', to: 'pages#shelters'
   get 'about_us', to: 'pages#about_us'
   get 'contact_us', to: 'pages#contact_us'
 
 
 
   resources :food_offers do
-    resources :orders, only: [:create]
+    resources :orders, only: [:create] # Create an 'Order' under a specific Offer
   end
 
   namespace :my do
-    resources :food_offers, only: [:index]
-    resources :orders, only: [:index,:update]
+    resources :food_offers, only: [:index] # Display the 'Offers' for Providers
+    resources :orders, only: [:index,:update,:show] # Update & display all 'Orders' from any User
   end
 
 end

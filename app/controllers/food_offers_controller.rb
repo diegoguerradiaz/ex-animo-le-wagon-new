@@ -1,5 +1,4 @@
 class FoodOffersController < ApplicationController
-
   def new
     @food_offer = FoodOffer.new
   end
