@@ -7,36 +7,35 @@
   </button>
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <% if current_user.role === "Provider" %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
+          <%= link_to "Ex-Animo",home_providers_path(current_user), class: "navbar-brand" %>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Offers", "#", class: "dropdown-item" %>
+            <%= image_tag "https://img.icons8.com/ios-filled/50/000000/menu--v1.png", class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-right" data-aos="fade-left"aria-labelledby="navbarDropdown">
+              <%= link_to "Offers",my_food_offers_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
+          <%= link_to "Ex-Animo",home_shelters_path(current_user), class: "navbar-brand" %>
           <li class="nav-item dropdown">
-            <%= image_tag "https://img.icons8.com/ios-filled/50/000000/menu--v1.png", class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://img.icons8.com/ios-filled/50/000000/menu--v1.png",class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Orders", orders_path, class: "dropdown-item" %>
+              <%= link_to "Orders", my_orders_path(current_user), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <% end %>
       <% else %>
         <li class="nav-item active">
-          <%= link_to "For Providers", "/for_providers", class: "nav-link" %>
+          <%= link_to "For Providers","/providers" , class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "For Shelters", "/for_shelters", class: "nav-link" %>
+          <%= link_to "For Shelters", "/shelters", class: "nav-link" %>
         </li>
         <li class="nav-item active">
           <%= link_to "About Us", "/about_us", class: "nav-link" %>
