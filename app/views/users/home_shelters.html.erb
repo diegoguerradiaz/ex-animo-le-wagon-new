@@ -1,0 +1,32 @@
+<h1>Discover all the food offers</h1>
+
+<div class="container justify-content-center">
+<% @food_offers.each do |offer| %>
+  <div class="card m-4" style="max-width: 720px;">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="https://delivery.hortifruti.com.br/images/institutional/hortifruti-home-logo.png" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-6">
+
+        <div class="card-body">
+          <p class="recipe-tags">
+            <span class="recipe-tag"><%= offer.user.company_name %> - </span>
+            <span class="recipe-tag"><%= offer.user.category %></span>
+          </p>
+          <p class="recipe-metadata">
+            <span class="recipe-rating">★★★★<span>☆</span></span>
+            <span class="recipe-votes">(12 votes)</span>
+          </p>
+          <h4 class="recipe-title text-secondary"><%= offer.category %></h4>
+          <p class="card-text"><small class="text-muted">Total weight: <strong><%= offer.total_unit %> (kg) </strong></small></p>
+
+          <button class="btn btn-sm btn-outline-success">
+            <%= link_to "Discover", food_offer_path(offer) %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

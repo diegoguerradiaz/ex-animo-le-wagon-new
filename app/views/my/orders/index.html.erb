@@ -1,0 +1,63 @@
+<div class="text-center my-4">
+  <h3>See all the updates of your orders!</h3>
+</div>
+
+<div class="wrapper-dashboard m-4 p-5">
+  <div class="row">
+    <div class="col-md-4">
+
+      <ul class="list-unstyled">
+        <% @orders.each do |order| %>
+          <%# <% offer.order.each do |order| %>
+            <li class="padded dashboard border p-4">
+
+
+              <% if order.stage === "Pending Validation" %>
+                <div class='product-body border' >
+
+                  <h4>Waiting for <strong><%= order.food_offer.user.company_name %></strong> validation ! </h4>
+                  <p> Dates requested : <%= order.start_order_date %> and <%= order.end_order_date %> </p>
+
+                </div>
+
+                <ul class="list-group list-group-horizontal product-controls hidden-sm hidden-xs">
+                  <li class="list-group-item list-group-item-warning">
+                    Pending...
+                  </li>
+                </ul>
+
+              <% elsif order.stage === "Confirmed"  %>
+
+                <div class='product-body'>
+
+                  <h3> <strong><%= order.food_offer.user.company_name %> </strong>accepted your request! 🎉 </h3>
+                  <p> Dates confirmed : <strong> <%= order.start_order_date %> </strong>and <%= order.end_order_date %> </p>
+                  <ul class="list-group list-group-horizontal product-controls hidden-sm hidden-xs">
+                    <li class="list-group-item list-group-item-success">
+                      Accepted :)
+                    </li>
+                  </ul>
+                </div>
+              <% else %>
+
+                <div class='product-body'>
+
+                  <h3> <strong><%= order.food_offer.user.company_name %> </strong>canceled your request 😔 </h3>
+                  <p> Dates canceled: <%= order.start_order_date %> and <%= order.end_order_date %> </p>
+
+                  <ul class="list-group list-group-horizontal product-controls hidden-sm hidden-xs">
+                    <li class="list-group-item list-group-item-danger">
+                      Canceled
+                    </li>
+                  </ul>
+
+                </div>
+
+              <% end %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+</div>

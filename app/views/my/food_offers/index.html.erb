@@ -1,0 +1,20 @@
+<div class="text-center">
+  <h2>Here are all the <strong id="red-word">Food offer</strong> you are sharing</h2>
+</div>
+
+  <div class="row">
+    <% @food_offers.each do |offer| %>
+      <div class="col-md-4 border">
+
+          <p>Product name: <%=  offer.offer_name %></p>
+          <p>Product category: <%=  offer.category %></p>
+          <p>Quantity: <%=  offer.total_unit %></p>
+
+          <% offer.orders.each do |order| %>
+            <p><strong>Order: <%= order.stage %></strong></p>
+          <% end %>
+
+      </div>
+    <% end %>
+  </div>
+<%= link_to("Create new food offer", new_food_offer_path) %>

@@ -1,17 +1,13 @@
 class OrdersController < ApplicationController
 
-  def index
-    @orders = Order.where(user_id: current_user.id)
-  end
-
   def create
-    # @offer = Offer.find(params[:offer_id])
     @order = Order.new(order_params)
-    # @order.offer = @offer
+    @food_offer = FoodOffer.find(params[:food_offer_id])
+    @order.food_offer = @food_offer
     @order.user = current_user
-
+    @order.stage = "Pending Validation"
     if @order.save!
-      redirect_to orders_path, notice: 'Order Successful'
+      redirect_to my_orders_path(current_user), notice: 'Order Successful'
     else
       render :new
     end
@@ -24,13 +20,16 @@ class OrdersController < ApplicationController
 
   def destroy
     set_order
+    @order.destroy
   end
 
-  def update
-    set_order
-    @order.update(order_params)
-    redirect_to orders_path(@order), notice: 'Updated'
-  end
+
+  # def update
+  #   set_order
+  #   @order.stage = "Pending Validation"
+  #   @order.update(order_params)
+  #   redirect_to orders_path(@order), notice: 'Updated'
+  # end
 
   private
   def set_order
@@ -38,6 +37,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:start_order_date, :end_order_date)
+    params.require(:order).permit(:start_order_date, :end_order_date, :stage)
   end
 end

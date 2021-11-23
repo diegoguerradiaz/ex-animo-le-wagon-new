@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_162557) do
+ActiveRecord::Schema.define(version: 2021_11_22_004513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "food_offers", force: :cascade do |t|
     t.string "category"
-    t.integer "unit"
-    t.string "product_name"
+    t.integer "total_unit"
+    t.string "offer_name"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "products_id"
+    t.index ["products_id"], name: "index_food_offers_on_products_id"
     t.index ["user_id"], name: "index_food_offers_on_user_id"
   end
 
@@ -32,9 +34,19 @@ ActiveRecord::Schema.define(version: 2021_11_21_162557) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.string "stage"
-    t.bigint "food_offers_id"
-    t.index ["food_offers_id"], name: "index_orders_on_food_offers_id"
+    t.bigint "food_offer_id"
+    t.index ["food_offer_id"], name: "index_orders_on_food_offer_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "product_name"
+    t.integer "quantity"
+    t.string "unit"
+    t.bigint "food_offer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_offer_id"], name: "index_products_on_food_offer_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,7 +65,9 @@ ActiveRecord::Schema.define(version: 2021_11_21_162557) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "food_offers", "products", column: "products_id"
   add_foreign_key "food_offers", "users"
-  add_foreign_key "orders", "food_offers", column: "food_offers_id"
+  add_foreign_key "orders", "food_offers"
   add_foreign_key "orders", "users"
+  add_foreign_key "products", "food_offers"
 end
