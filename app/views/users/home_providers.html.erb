@@ -28,8 +28,7 @@
                     <%= link_to "Decline", my_order_path(order, order: {stage: "Canceled"}), method: :patch, class: "btn btn-outline-danger"%>
                   </div>
 
-                <% elsif order.stage === "Confirmed"  %>
-
+                <% elsif order.stage === "Confirmed" %>
                   <div class='product-body'>
 
                     <h3> <strong><%= order.user.company_name %> </strong>received your donation ! </h3>
