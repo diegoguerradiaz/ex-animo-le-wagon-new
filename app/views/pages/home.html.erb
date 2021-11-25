@@ -5,6 +5,18 @@
 
       <div class="container p-5"> <!--- basket image --->
         <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637771780/ex-animo/img-home-page2.png",:height=>380, :width=>420 %>
+
+<div class="container">
+  <div class="row y-5">
+
+    <div class="col m-5">
+      <div class="logo-img my-5 ml-5"> <!--- logo --->
+        <%= image_tag "https://source.unsplash.com/random", alt: "Logo", width: 200, height: 200%>
+      </div>
+
+      <div class="basket-img ml-5"> <!--- basket image --->
+        <%= image_tag "https://source.unsplash.com/random", alt: "Logo", width: 200, height: 200%>
+
       </div>
 
     </div>
@@ -21,18 +33,36 @@
         <br>with homeless shelters
         <br>to provide food to people in need
         <br>in order to prevent waste.<p>
+    <div class="col my-5"> <!--- navbar links --->
+
+      <div class="home-slogan-box my-5"> <!--- left side text intro --->
+        <h2 class="home-slogan">Fight hunger
+        <br>fight food
+        <br>waste<h2>
+      </div>
+
+      <div class="home-intro">
+        <p>We connect <b>food producers</b>
+        <br>with <b>homeless shelters</b>
+        <br>to provide <b>food</b> to people in <b>need</b>
+        <br>in order to <b>prevent waste.</b><p>
       </div>
 
     </div>
   </div>
 
-  <div class="conatainer"> <!--- info scrolldown bar --->
+  <div class="info-scrolldown"> <!--- info scrolldown bar --->
 
     <div class="container pb-3" id="info-bar"> <!--- info text --->
 
       <div class="row justify-content-md-center">
         <p class="mb-0 p-2 pb-0 border-top" id="info-bar-txt">Brazil is in the grim list of top 10 countries that waste the most food</p>
         <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637771780/ex-animo/Screen_Shot_2021-11-11_at_4.33.37_PM_asmxb7.png",:height=>300, :width=>700%>
+
+    <div class="info-bar"> <!--- info text --->
+
+      <div class="row justify-content-md-center align-items-center">
+        <p class="info-bar-txt">Brazil is in the grim list of top 10 countries that waste the most food</p>
       </div>
 
     </div>
@@ -47,39 +77,67 @@
         </p>
         <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1637771779/ex-animo/img2-home-page_xubldb.png",:height=>300, :width=>700 %>
 
+    <div class="info-img"> <!--- info img --->
+      <%= image_tag "https://source.unsplash.com/random", style: 'height:500px;width:100%;'%>
+    </div>
+
+    <div class="info-bar"> <!--- info text --->
+
+      <div class="row justify-content-md-center align-items-center">
+        <p class="info-bar-txt">Food waste generates a resounding loss of 940 billion dollars per year, affecting not only the less priviliged but also Brazil’s economy</p>
       </div>
 
     </div>
 
-    <div id="info-img"> <!--- info img --->
+ <div id="info-img"> <!--- info img --->
+    <div class="info-img"> <!--- info img --->
+      <%= image_tag "https://source.unsplash.com/random", style: 'height:500px;width:100%;'%>
     </div>
 
-    <div class="container py-3" id="info-bar"> <!--- info text --->
+    <div class="info-bar"> <!--- info text --->
 
       <div class="row justify-content-md-center align-items-center">
         <p class="mb-0 p-4 border-top" id="info-bar-txt">So why not donate the excess food to those in need?</p>
         <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1637771779/ex-animo/img3-home-page_p0bwc4.png",:height=>300, :width=>700%>
+        <p class="info-bar-txt">So why not donate the excess food to those in need?</p>
       </div>
 
     </div>
 
     <div class="container py-3 px-0" id="info-img"> <!--- info img --->
+
+    <div class="info-img"> <!--- info img --->
+      <%= image_tag "https://source.unsplash.com/random", style: 'height:500px;width:100%;'%>
     </div>
   </div>
 
 
-  <div class="row"> <!--- sign up section --->
-    <div class=container>
-      <h3 class="mb-0 px-5" id="info-bar-txt">Sign up and start helping your local community</h3>
+  <div class="sign-up"> <!--- sign up section --->
+    <div class=sign-up-bar>
+      <h3 class="info-text-bottom">Sign up and start helping your
+      <br>local community</h3>
     </div>
 
-    <div class=container>
 
-    </div>
+      <div class="row my-5 pb-5">
+        <div class="col-6 my-5">
+          <p class="registration summary">Own a business that <br>produces excess food?</p>
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-success">Provider sign up</button>
+          </div>
+        </div>
 
-    <div class=container>
+        <div class="col-6 my-5">
 
-    </div>
+          <p>Manage a shelter with<br> unfullfiled food needs?</p>
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-success">Shelter sign up</button>
+          </div>
+        </div>
+      </div>
+
+
+
 
 
   </div>
