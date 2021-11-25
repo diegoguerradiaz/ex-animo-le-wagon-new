@@ -1,12 +1,7 @@
-
-<%# <figure id="figure">
-</figure> %>
-
 <div class="container">
-  <h1>EX-ANIMO</h1>
-  <div class="row mb-5">
+  <div class="row y-5">
 
-    <div class="col">
+    <div class="col my-5">
       <div class="logo-img"> <!--- logo --->
         <%= image_tag "https://source.unsplash.com/random", alt: "Logo", width: 150, height: 150%>
       </div>
@@ -17,10 +12,12 @@
 
     </div>
 
-    <div class="col"> <!--- navbar links --->
+    <div class="col my-5"> <!--- navbar links --->
 
-      <div class="home-slogan"> <!--- left side text intro --->
-        <h2>Fight hunger fight food waste<h2>
+      <div class="home-slogan-box"> <!--- left side text intro --->
+        <h2 class="home-slogan">Fight hunger
+        <br>fight food
+        <br>waste<h2>
       </div>
 
       <div class="home-intro">
@@ -44,7 +41,7 @@
     </div>
 
     <div class="info-img"> <!--- info img --->
-      <img style="width:100%;" src=”https://source.unsplash.com/random” height="150">
+      <%= image_tag "https://source.unsplash.com/random", style: 'height:500px;width:100%;'%>
     </div>
 
     <div class="info-bar"> <!--- info text --->
@@ -56,7 +53,7 @@
     </div>
 
     <div class="info-img"> <!--- info img --->
-      <img style="width:100%;" src=”https://source.unsplash.com/random” height="150">
+      <%= image_tag "https://source.unsplash.com/random", style: 'height:500px;width:100%;'%>
     </div>
 
     <div class="info-bar"> <!--- info text --->
@@ -68,28 +65,32 @@
     </div>
 
     <div class="info-img"> <!--- info img --->
-      <img style="width:100%;" src=”https://source.unsplash.com/random” height="150">
+      <%= image_tag "https://source.unsplash.com/random", style: 'height:500px;width:100%;'%>
     </div>
   </div>
 
 
-  <div class="row"> <!--- sign up section --->
-    <div class=container>
+  <div class="sign-up"> <!--- sign up section --->
+    <div class=sign-up-bar>
       <h3 class="info-bar-txt">Sign up and start helping your local community</h3>
     </div>
 
-    <div class=container>
+    <div class="row">
+      <div class="col-6 align-middle">
+        <p>Own a business that produces excess food?</p>
+        <button type="button" class="btn btn-success">Provider sign up</button>
+      </div>
 
+      <div class="col-6">
+        <p>Manage a shelter with unfullfiled food needs?</p>
+        <button type="button" class="btn btn-success">Shelter sign up</button>
+
+      </div>
     </div>
 
-    <div class=container>
-
-    </div>
 
 
   </div>
 
 
 </div>
-
-<p>test</p>
