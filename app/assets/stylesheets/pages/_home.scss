@@ -1,12 +1,40 @@
 // Specific CSS for your home-page
 
-#info-bar {
+.info-bar {
   justify-content: space-between;
   background: #CFEABA;
   color: black;
 }
 
-#info-bar-txt {
-  font-size: 25px;
+.info-bar-txt {
+  font-size: 35px;
   text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.container {
+  margin: 0%;
+}
+
+.home-slogan {
+  font-size: 50px;
+  margin-top: 100px;
+}
+
+.info-text-bottom {
+  font-size: 60px;
+  text-align: center;
+}
+
+.margin-vertical {
+  margin-top: 100px;
+}
+
+.sign-up-form {
+  flex-wrap: wrap;
+}
+
+.registration summary {
+  text-align: 40px;
 }
