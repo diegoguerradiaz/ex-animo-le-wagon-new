@@ -36,6 +36,6 @@ class FoodOffersController < ApplicationController
   end
 
   def food_offer_params
-    params.require(:food_offer).permit(:category, :product_name, :unit)
+    params.require(:food_offer).permit(:category, :offer_name, :total_unit)
   end
 end

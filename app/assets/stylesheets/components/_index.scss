@@ -4,31 +4,4 @@
 @import "navbar";
 @import "landing-home";
 @import "banner";
-
-h2 {
-  display: block;
-  font-size: 2em;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-  text-align: center;
-}
-
-p {
-  text-align: center;
-  color: black;
-  font-size: 1.25em;
-}
-
-h1 {
-  text-align: center;
-  padding-top: 20px;
-}
-
-.container-fluid {
-  background-color: lightgreen;
-  padding-bottom: 10px;
-  margin-bottom: 5px;
-}
+@import "profile";

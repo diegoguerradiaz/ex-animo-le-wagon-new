@@ -1,12 +1,30 @@
 // Specific CSS for your home-page
-
+.page-wrapper {
+   background-color: white;
+}
+.container {
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
 #info-bar {
-  justify-content: space-between;
-  background: #CFEABA;
-  color: black;
+  align-items: center;
+  background: white;
+  color: #0c3131;
 }
 
 #info-bar-txt {
-  font-size: 25px;
+  font-size: 30px;
   text-align: center;
+  color: black;
+  padding-bottom: 10px;
+}
+
+
+#landing-title {
+  font-size: 60px;
+}
+
+#landing-text {
+  font-size: 25px;
 }

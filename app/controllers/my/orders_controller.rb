@@ -12,6 +12,13 @@ class My::OrdersController < ApplicationController
     redirect_to home_providers_path
   end
 
+  def destroy
+    set_order
+    @order.user = current_user
+    @order.destroy
+    redirect_to home_providers_path
+  end
+
   private
 
   def set_order

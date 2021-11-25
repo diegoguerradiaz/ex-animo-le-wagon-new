@@ -1,36 +1,22 @@
-
-<h1>EX-ANIMO</h1>
-<%# <figure id="figure">
-</figure> %>
-
-<div class="container mr-0 px-0">
+<div class="page-wrapper mx-0">
   <div class="row mb-5">
 
-    <div class="col">
-      <div class="container"> <!--- logo --->
-        <img src=”https://source.unsplash.com/random” width="150" height="150">
-      </div>
+    <div class="landing ml-5">
 
-      <div class="container"> <!--- basket image --->
-        <img src=”https://source.unsplash.com/random” width="150" height="150">
+      <div class="container p-5"> <!--- basket image --->
+        <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637771780/ex-animo/img-home-page2.png",:height=>380, :width=>420 %>
       </div>
 
     </div>
 
     <div class="col"> <!--- navbar links --->
 
-      <div class="d-flex">
-        <div class="col p-0"><%= link_to "For Providers", "/for_providers", class: "nav-link" %></div>
-        <div class="col p-0"><%= link_to "For Shelters", "/for_shelters", class: "nav-link" %></div>
-        <div class="col p-0"><%= link_to "About Us", "/about_us", class: "nav-link" %></div>
-        <div class="col p-0"><%= link_to "Contact Us", "/contact_us", class: "nav-link" %></div>
+      <div class="container p-5" id="landing-title"> <!--- left side text intro --->
+        <p>Fight hunger</p>
+        <p>Fight food waste<p>
       </div>
 
-      <div class="container"> <!--- left side text intro --->
-        <h2>Fight hunger fight food waste<h2>
-      </div>
-
-      <div class="container">
+      <div class="container p-3 mb-4 border-top" id="landing-text">
         <p>We connect food producers
         <br>with homeless shelters
         <br>to provide food to people in need
@@ -42,40 +28,42 @@
 
   <div class="conatainer"> <!--- info scrolldown bar --->
 
+    <div class="container pb-3" id="info-bar"> <!--- info text --->
+
+      <div class="row justify-content-md-center">
+        <p class="mb-0 p-2 pb-0 border-top" id="info-bar-txt">Brazil is in the grim list of top 10 countries that waste the most food</p>
+        <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637771780/ex-animo/Screen_Shot_2021-11-11_at_4.33.37_PM_asmxb7.png",:height=>300, :width=>700%>
+      </div>
+
+    </div>
+
+    <div class="container" id="info-bar"> <!--- info text --->
+
+      <div class="row justify-content-md-center">
+        <p class="mb-0 pb-4" id="info-bar-txt">
+          Food waste generates a resounding loss of
+          <br>940 billion dollars per year, affecting not
+          <br>only the less priviliged but also Brazil’s economy
+        </p>
+        <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1637771779/ex-animo/img2-home-page_xubldb.png",:height=>300, :width=>700 %>
+
+      </div>
+
+    </div>
+
+    <div id="info-img"> <!--- info img --->
+    </div>
+
     <div class="container py-3" id="info-bar"> <!--- info text --->
 
       <div class="row justify-content-md-center align-items-center">
-        <p class="mb-0 px-5" id="info-bar-txt">Brazil is in the grim list of top 10 countries that waste the most food</p>
+        <p class="mb-0 p-4 border-top" id="info-bar-txt">So why not donate the excess food to those in need?</p>
+        <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1637771779/ex-animo/img3-home-page_p0bwc4.png",:height=>300, :width=>700%>
       </div>
 
     </div>
 
     <div class="container py-3 px-0" id="info-img"> <!--- info img --->
-      <img style="width:100%;" src=”https://source.unsplash.com/random” height="150">
-    </div>
-
-    <div class="container py-3" id="info-bar"> <!--- info text --->
-
-      <div class="row justify-content-md-center align-items-center">
-        <p class="mb-0 px-5" id="info-bar-txt">Food waste generates a resounding loss of 940 billion dollars per year, affecting not only the less priviliged but also Brazil’s economy</p>
-      </div>
-
-    </div>
-
-    <div class="container py-3 px-0" id="info-img"> <!--- info img --->
-      <img style="width:100%;" src=”https://source.unsplash.com/random” height="150">
-    </div>
-
-    <div class="container py-3" id="info-bar"> <!--- info text --->
-
-      <div class="row justify-content-md-center align-items-center">
-        <p class="mb-0 px-5" id="info-bar-txt">So why not donate the excess food to those in need?</p>
-      </div>
-
-    </div>
-
-    <div class="container py-3 px-0" id="info-img"> <!--- info img --->
-      <img style="width:100%;" src=”https://source.unsplash.com/random” height="150">
     </div>
   </div>
 
