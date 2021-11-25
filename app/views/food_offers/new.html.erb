@@ -1,17 +1,14 @@
-<h1>Create a new food offer</h1>
+<div class="row justify-content-center">
+  <div class="col-8 p-4">
+    <h2>Donation form</h2>
+    <%= simple_form_for(@food_offer) do |f| %>
+      <%= f.input :offer_name, label: "Donation title" %>
+      <%= f.input :offer_description, label: "Description"%>
+      <%= f.input :category, label: "Category"%>
+      <%= f.input :total_unit, label: "Total Unit"%>
+      <%= f.input :delivery, as: :boolean, checked_value: true, unchecked_value: false %>
 
-
-<%= form_for(@food_offer) do |offer| %>
-  <%= offer.label :offer_name %>
-  <%= offer.text_field :offer_name %>
-  <%= offer.label :category %>
-  <%= offer.text_field :category %>
-  <%= offer.label :total_unit %>
-  <%= offer.number_field :total_unit %>
-  <%= offer.submit %>
-
-<% end %>
-
-
-
-<%= link_to("See all food offers", my_food_offers_path) %>
+      <%= f.submit "Submit", class: "btn btn-outline-success" %>
+    <% end %>
+  </div>
+</div>

@@ -6,24 +6,24 @@
 </div>
 
 
-<div class="container emp-profile border p-5">
+<div class="container emp-profile border p-5 bg-white">
     <form method="post">
 
       <div class="row">
-        <div class="col-md-4">
-          <div class="profile-img align-items-center">
-            <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637432969/ex-animo/avatar.png",width: 100, height: 100 %>
-            <button class="btn btn-sm btn-outline-success">
+        <div class="col-md-4 my-4">
+          <div class="profile-img align-items-left">
+            <%= cl_image_tag "#{@user.photo_url}" ,width: 200, height: 200 %>
+          </div>
+
+            <button class="btn btn-sm btn-outline-success mt-2">
               Change Photo
             </button>
-          </div>
         </div>
 
         <div class="col-md-4">
-          <div class="profile-head">
-            <h5> <%= @user.company_name %></h5>
-            <h6><%= @user.category %></h6>
-            <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+          <div class="profile-head text-align-left">
+            <p>Name: <%= @user.company_name %></p>
+            <p>Category: <%= @user.category %></p>
               <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -38,42 +38,40 @@
       </div>
 
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 my-4">
           <div class="profile-work">
-            <p>Phone Number</p>
-            <a href=""><%= @user.phone_number %></a><br/>
-            <p>Email</p>
-            <a href=""><%= @user.email %></a><br/>
+            <span>Phone: <a href=""><%= @user.phone_number %></a><br/></span>
+            <span>Email: <a href=""><%= @user.email %></a><br/></span>
           </div>
         </div>
 
         <div class="col-md-8">
           <div class="tab-content profile-tab" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tab-pane fade show active my-4 pr-3" id="home" role="tabpanel" aria-labelledby="home-tab">
 
               <div class="row">
-                <div class="col-md-6">
-                  <label>User ID</label>
+                <div class="col-md-4">
+                  <label>User ID:</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <p><%= @user.id %></p>
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-md-6">
-                    <label>Role</label>
+                <div class="col-md-4">
+                    <label>Role:</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <p><%= @user.role %></p>
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-md-6">
-                    <label>Password</label>
+                <div class="col-md-4">
+                    <label>Password:</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <p> ******* </p>
                 </div>
               </div>

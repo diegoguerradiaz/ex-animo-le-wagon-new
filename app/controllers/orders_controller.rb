@@ -14,27 +14,7 @@ class OrdersController < ApplicationController
 
   end
 
-  def edit
-    set_order
-  end
-
-  def destroy
-    set_order
-    @order.destroy
-  end
-
-
-  # def update
-  #   set_order
-  #   @order.stage = "Pending Validation"
-  #   @order.update(order_params)
-  #   redirect_to orders_path(@order), notice: 'Updated'
-  # end
-
   private
-  def set_order
-    @order = Order.find(params[:id])
-  end
 
   def order_params
     params.require(:order).permit(:start_order_date, :end_order_date, :stage)
