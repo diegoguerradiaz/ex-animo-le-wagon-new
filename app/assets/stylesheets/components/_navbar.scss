@@ -4,7 +4,7 @@
   .menu {
     display: none;
     position: absolute;
-    background-color:rgb(234, 213, 187);
+    background-color:#abcea9;
     right: 0;
     left: 0;
     text-align: center;
@@ -12,7 +12,7 @@
   }
   .menu li:hover {
     display: inline-block;
-    background-color:rgb(219, 194, 163);
+    background-color:#bad6b8;
     transition: 0.3s ease;
   }
 
@@ -26,7 +26,7 @@
   padding-left: 0;
   padding-right: 0;
   margin-top: 0;
-  background-color: rgb(234, 213, 187);
+  background-color: #abcea9;
 }
 .nav-links a {
   list-style: none;
@@ -43,7 +43,7 @@
   font-size: 20px;
 }
 .menu li:hover {
-  background-color: rgb(219, 194, 163);
+  background-color: #bad6b8;
   border-radius: 2px;
   transition: 0.3s ease;
 }
@@ -51,7 +51,7 @@
   padding: 5px 14px;
 }
 .nav-link-sign-in:hover {
-  background-color: rgb(219, 194, 163);
+  background-color: #bad6b8;
   border-radius: 2px;
   transition: 0.3s ease;
 }

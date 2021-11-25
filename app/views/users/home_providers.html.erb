@@ -8,7 +8,6 @@
         <% @food_offers.each do |offer| %>
           <% offer.orders.each do |order| %>
               <div class="card p-4 m-3 rounded">
-
                   <div class="first">
                     <h6 class="heading"><%= order.user.company_name %></h6>
                     <div class="time d-flex flex-row align-items-center justify-content-between mt-3">
@@ -33,7 +32,7 @@
                         <h6><strong>From:</strong> <%= order.start_order_date %>
                         <br><strong>To:</strong> <%= order.end_order_date %>
                         </h6>
-                        <div class="third mt-4"> <button class="btn btn-success btn-block">Completed 🎉 </button>
+                        <div class="third mt-4"> <button class="btn btn-success btn-block">Accepted 🎉 </button>
                         </div>
                       <% elsif order.stage === "Pending Validation" %>
                         <div class="image mr-3"> <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637796581/ex-animo/pending.png", height: 50, width: 50 %></div>

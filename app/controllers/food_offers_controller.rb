@@ -1,4 +1,5 @@
 class FoodOffersController < ApplicationController
+
   def new
     @food_offer = FoodOffer.new
   end
@@ -8,7 +9,7 @@ class FoodOffersController < ApplicationController
     @food_offer.user_id = current_user.id
 
     if @food_offer.save!
-      redirect_to my_food_offers_path(@food_offer)
+      redirect_to my_food_offers_path
     else
       render :new
     end
@@ -36,6 +37,6 @@ class FoodOffersController < ApplicationController
   end
 
   def food_offer_params
-    params.require(:food_offer).permit(:category, :offer_name, :total_unit)
+    params.require(:food_offer).permit(:category, :offer_name, :total_unit, :offer_description, :delivery)
   end
 end

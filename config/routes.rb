@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 
   resources :food_offers do
-    resources :orders, only: [:create] # Create an 'Order' under a specific Offer
+    resources :orders, only: [:create]
   end
 
   namespace :my do
