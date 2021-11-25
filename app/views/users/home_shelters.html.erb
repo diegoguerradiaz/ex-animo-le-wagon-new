@@ -1,24 +1,22 @@
-<h1>Discover all the food offers</h1>
-
-<div class="container justify-content-center">
+<div class="container">
 <% @food_offers.each do |offer| %>
-  <div class="card m-4" style="max-width: 720px;">
+  <div class="card m-4 rounded" style="max-width: 720px;">
     <div class="row">
       <div class="col-md-6">
-        <img src="https://delivery.hortifruti.com.br/images/institutional/hortifruti-home-logo.png" class="img-fluid rounded-start" alt="...">
+        <%= cl_image_tag "#{offer.user.photo_url}", width: 200, height: 200%>
       </div>
       <div class="col-md-6">
 
         <div class="card-body">
           <p class="recipe-tags">
-            <span class="recipe-tag"><%= offer.user.company_name %> - </span>
-            <span class="recipe-tag"><%= offer.user.category %></span>
+          <h3><span class="recipe-tag"><%= offer.user.company_name %> </span></h3>
+          <h4 class="recipe-title text-secondary"><%= offer.category %></h4>
+
           </p>
           <p class="recipe-metadata">
             <span class="recipe-rating">★★★★<span>☆</span></span>
-            <span class="recipe-votes">(12 votes)</span>
+            <span class="recipe-votes">(5 reviews)</span>
           </p>
-          <h4 class="recipe-title text-secondary"><%= offer.category %></h4>
           <p class="card-text"><small class="text-muted">Total weight: <strong><%= offer.total_unit %> (kg) </strong></small></p>
 
           <button class="btn btn-sm btn-outline-success">

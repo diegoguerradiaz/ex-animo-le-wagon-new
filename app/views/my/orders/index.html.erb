@@ -1,63 +1,66 @@
 <div class="text-center my-4">
   <h3>See all the updates of your orders!</h3>
 </div>
-
-<div class="wrapper-dashboard m-4 p-5">
-  <div class="row">
-    <div class="col-md-4">
-
-      <ul class="list-unstyled">
+<div class="container mt-5 d-flex justify-content-center">
+      <div class="row">
         <% @orders.each do |order| %>
-          <%# <% offer.order.each do |order| %>
-            <li class="padded dashboard border p-4">
+          <%# <% offer.orders.each do |order| %>
+              <div class="card p-4 m-3 rounded">
 
+                  <div class="first">
+                    <h6 class="heading"><%= order.user.company_name %></h6>
+                    <div class="time d-flex flex-row align-items-center justify-content-between mt-3">
+                      <div class="d-flex align-items-center"> <i class="fa fa-clock-o clock"></i> <strong class="hour ml-1"><%= order.user.category %></strong> </div>
+                      <div><span class="font-weight-bold"></span> <%= link_to "🗑", my_order_path(order), method: :delete %></div>
+                    </div>
+                  </div>
+                  <div class="second d-flex flex-row mt-2">
 
-              <% if order.stage === "Pending Validation" %>
-                <div class='product-body border' >
+                      <% if order.stage === "Confirmed" %>
+                        <div class="image mr-3"> <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637796582/ex-animo/done.png", height: 50, width: 50 %></div>
+                          <div class="">
+                            <div class="d-flex flex-row mb-1">
+                              <div class="ratings ml-2 pt-3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="line-color">
+                        <h6><strong>From:</strong> <%= order.start_order_date %>
+                        <br><strong>To:</strong> <%= order.end_order_date %>
+                        </h6>
+                        <div class="third mt-4"> <button class="btn btn-success btn-block">Accepted 🎉 </button>
+                        </div>
+                      <% elsif order.stage === "Pending Validation" %>
+                        <div class="image mr-3"> <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637796581/ex-animo/pending.png", height: 50, width: 50 %></div>
+                          <div class="">
+                            <div class="d-flex flex-row mb-1">
+                              <div class="ratings ml-2 pt-3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="line-color">
 
-                  <h4>Waiting for <strong><%= order.food_offer.user.company_name %></strong> validation ! </h4>
-                  <p> Dates requested : <%= order.start_order_date %> and <%= order.end_order_date %> </p>
-
-                </div>
-
-                <ul class="list-group list-group-horizontal product-controls hidden-sm hidden-xs">
-                  <li class="list-group-item list-group-item-warning">
-                    Pending...
-                  </li>
-                </ul>
-
-              <% elsif order.stage === "Confirmed"  %>
-
-                <div class='product-body'>
-
-                  <h3> <strong><%= order.food_offer.user.company_name %> </strong>accepted your request! 🎉 </h3>
-                  <p> Dates confirmed : <strong> <%= order.start_order_date %> </strong>and <%= order.end_order_date %> </p>
-                  <ul class="list-group list-group-horizontal product-controls hidden-sm hidden-xs">
-                    <li class="list-group-item list-group-item-success">
-                      Accepted :)
-                    </li>
-                  </ul>
-                </div>
-              <% else %>
-
-                <div class='product-body'>
-
-                  <h3> <strong><%= order.food_offer.user.company_name %> </strong>canceled your request 😔 </h3>
-                  <p> Dates canceled: <%= order.start_order_date %> and <%= order.end_order_date %> </p>
-
-                  <ul class="list-group list-group-horizontal product-controls hidden-sm hidden-xs">
-                    <li class="list-group-item list-group-item-danger">
-                      Canceled
-                    </li>
-                  </ul>
-
-                </div>
-
-              <% end %>
-            </li>
+                          <h6><strong>From:</strong> <%= order.start_order_date %>
+                          <br><strong>To:</strong> <%= order.end_order_date %>
+                          </h6>
+                          <div class="third mt-4"> <button class="btn btn-info btn-block">Pending </button>
+                          </div>
+                      <% else %>
+                        <div class="image mr-3"> <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637796582/ex-animo/cancel.png", height: 50, width: 50 %></div>
+                          <div class="">
+                            <div class="d-flex flex-row mb-1">
+                              <div class="ratings ml-2 pt-3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="line-color">
+                          <h6><strong>From:</strong> <%= order.start_order_date %>
+                          <br><strong>To:</strong> <%= order.end_order_date %>
+                          </h6>
+                          <div class="third mt-4"> <button class="btn btn-danger btn-block">Canceled 💔 </button>
+                          </div>
+                      <% end %>
+              </div>
         <% end %>
-      </ul>
-    </div>
+      </div>
   </div>
-
-</div>

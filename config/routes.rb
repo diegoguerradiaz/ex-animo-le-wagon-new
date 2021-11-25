@@ -14,12 +14,12 @@ Rails.application.routes.draw do
 
 
   resources :food_offers do
-    resources :orders, only: [:create] # Create an 'Order' under a specific Offer
+    resources :orders, only: [:create]
   end
 
   namespace :my do
     resources :food_offers, only: [:index] # Display the 'Offers' for Providers
-    resources :orders, only: [:index,:update,:show] # Update & display all 'Orders' from any User
+    resources :orders # Update & display all 'Orders' from any User
   end
 
 end
