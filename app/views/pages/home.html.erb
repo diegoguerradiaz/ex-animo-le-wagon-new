@@ -1,30 +1,30 @@
 <div class="container">
   <div class="row y-5">
 
-    <div class="col my-5">
-      <div class="logo-img"> <!--- logo --->
-        <%= image_tag "https://source.unsplash.com/random", alt: "Logo", width: 150, height: 150%>
+    <div class="col m-5">
+      <div class="logo-img my-5 ml-5"> <!--- logo --->
+        <%= image_tag "https://source.unsplash.com/random", alt: "Logo", width: 200, height: 200%>
       </div>
 
-      <div class="basket-img"> <!--- basket image --->
-        <%= image_tag "https://source.unsplash.com/random", alt: "Logo", width: 150, height: 150%>
+      <div class="basket-img ml-5"> <!--- basket image --->
+        <%= image_tag "https://source.unsplash.com/random", alt: "Logo", width: 200, height: 200%>
       </div>
 
     </div>
 
     <div class="col my-5"> <!--- navbar links --->
 
-      <div class="home-slogan-box"> <!--- left side text intro --->
+      <div class="home-slogan-box my-5"> <!--- left side text intro --->
         <h2 class="home-slogan">Fight hunger
         <br>fight food
         <br>waste<h2>
       </div>
 
       <div class="home-intro">
-        <p>We connect food producers
-        <br>with homeless shelters
-        <br>to provide food to people in need
-        <br>in order to prevent waste.<p>
+        <p>We connect <b>food producers</b>
+        <br>with <b>homeless shelters</b>
+        <br>to provide <b>food</b> to people in <b>need</b>
+        <br>in order to <b>prevent waste.</b><p>
       </div>
 
     </div>
@@ -72,21 +72,29 @@
 
   <div class="sign-up"> <!--- sign up section --->
     <div class=sign-up-bar>
-      <h3 class="info-bar-txt">Sign up and start helping your local community</h3>
+      <h3 class="info-text-bottom">Sign up and start helping your
+      <br>local community</h3>
     </div>
 
-    <div class="row">
-      <div class="col-6 align-middle">
-        <p>Own a business that produces excess food?</p>
-        <button type="button" class="btn btn-success">Provider sign up</button>
+
+      <div class="row my-5 pb-5">
+        <div class="col-6 my-5">
+          <p class="registration summary">Own a business that <br>produces excess food?</p>
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-success">Provider sign up</button>
+          </div>
+        </div>
+
+        <div class="col-6 my-5">
+
+          <p>Manage a shelter with<br> unfullfiled food needs?</p>
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-success">Shelter sign up</button>
+          </div>
+        </div>
       </div>
 
-      <div class="col-6">
-        <p>Manage a shelter with unfullfiled food needs?</p>
-        <button type="button" class="btn btn-success">Shelter sign up</button>
 
-      </div>
-    </div>
 
 
 
