@@ -1,29 +1,24 @@
 <%= link_to "Create new food offer", new_food_offer_path %>
+<div class="container">
+  <div class="row">
+    <% @food_offers.each do |offer| %>
+      <div class="col-4">
+        <div class="card">
+          <%= cl_image_tag "#{current_user.photo_url}", width: 200, height: 200 %>
+            <p class="recipe-metadata">
+              <span class="recipe-rating">★★★★<span>☆</span></span>
+              <span class="recipe-votes">(12 votes)</span>
+            </p>
 
-<% @food_offers.each do |offer| %>
-  <div class="card sm-4" style="max-width: 720px;">
-    <div class="row">
-      <div class="col-md-6">
-        <%= cl_image_tag "#{current_user.photo_url}", width: 300, height: 300 %>
-      </div>
-      <div class="col-md-6">
-          <p class="recipe-metadata">
-            <span class="recipe-rating">★★★★<span>☆</span></span>
-            <span class="recipe-votes">(12 votes)</span>
-          </p>
+            <h4 class="recipe-title"><span class="text-secondary">Title:</span> <%= offer.offer_name %></h4>
+            <h4 class="recipe-title"><span class="text-secondary">Description:</span> <%= offer.offer_description %></h4>
+            <h4 class="recipe-title"><span class="text-secondary">Category:</span>  <%= offer.category %></h4>
+            <p class="card-text"><small class="text-muted"><span class="text-secondary">Total weight:<span> <%= offer.total_unit %> (kg)</strong></small></p>
 
-        <div class="card-body">
-          <h4 class="recipe-title"><span class="text-secondary">Title:</span> <%= offer.offer_name %></h4>
-          <h4 class="recipe-title"><span class="text-secondary">Description:</span>
-            <br><%= offer.offer_description %>
-          </h4>
-
-          <h4 class="recipe-title"><span class="text-secondary">Category:</span>  <%= offer.category %></h4>
-          <p class="card-text"><small class="text-muted"><span class="text-secondary">Total weight: <span><%= offer.total_unit %> (kg) </strong></small></p>
-            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit"/>
-            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Delete"/>
+              <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit"/>
+              <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Delete"/>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
