@@ -1,99 +1,96 @@
-<div class="page-wrapper mx-0">
-  <div class="container">
-    <div class="row ">
-      <div class="container p-5" id="landing-title"> <!--- left side text intro --->
+<div class="container">
+
+  <div class="row">
+
+    <div class="col ml-5">
+      <div class="logo-img my-5 ml-5"> <!--- logo --->
         <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637771780/ex-animo/img-home-page2.png",:height=>380, :width=>420 %>
-          <p>Fight hunger</p>
-          <p>Fight food waste<p>
-      </div>
-
-      <div class="col">
-        <div class="container p-3 mb-4 border-top" id="landing-text">
-          <p>We connect food producers
-          <br>with homeless shelters
-          <br>to provide food to people in need
-          <br>in order to prevent waste.<p>
-        </div>
       </div>
     </div>
 
-  <div class="info-scrolldown"> <!--- info scrolldown bar --->
+    <div class="col mr-5">
 
-    <div class="container pb-3" id="info-bar"> <!--- info text --->
-
-      <div class="row justify-content-md-center">
-        <p class="mb-0 p-2 pb-0 border-top" id="info-bar-txt">Brazil is in the grim list of top 10 countries that waste the most food</p>
-        <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637771780/ex-animo/Screen_Shot_2021-11-11_at_4.33.37_PM_asmxb7.png",:height=>300, :width=>700%>
-
-    <div class="info-bar"> <!--- info text --->
-
-      <div class="row justify-content-md-center align-items-center">
-        <p class="info-bar-txt">Brazil is in the grim list of top 10 countries that waste the most food</p>
+      <div class="home-slogan-box"> <!--- left side text intro --->
+        <h2 class="home-slogan">Fight hunger
+        <br>fight food waste<h2>
       </div>
 
-    </div>
-
-    <div class="container" id="info-bar"> <!--- info text --->
-      <div class="row justify-content-md-center align-items-center">
-        <p id="info-bar-txt">
-          <br>Food waste generates a resounding loss of
-          <br>940 billion dollars per year, affecting not
-          <br>only the less priviliged but also Brazil’s economy
-        </p>
-        <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1637771779/ex-animo/img2-home-page_xubldb.png",:height=>300, :width=>700 %>
-
-    <div class="info-bar"> <!--- info text --->
-
-      <div class="row justify-content-md-center align-items-center">
-        <p class="info-bar-txt">Food waste generates a resounding loss of 940 billion dollars per year, affecting not only the less priviliged but also Brazil’s economy</p>
-      </div>
-
-    </div>
-
- <div id="info-img"> <!--- info img --->
-    <div class="info-bar"> <!--- info text --->
-
-      <div class="row justify-content-md-center align-items-center">
-        <p class="mb-0 p-4 border-top" id="info-bar-txt">So why not donate the excess food to those in need?</p>
-        <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1637771779/ex-animo/img3-home-page_p0bwc4.png",:height=>300, :width=>700%>
-        <p class="info-bar-txt">So why not donate the excess food to those in need?</p>
+      <div class="home-intro">
+        <p>We connect <b>food producers</b>
+        <br>with <b>homeless shelters</b>
+        <br>to provide <b>food</b> to people in <b>need</b>
+        <br>in order to <b>prevent waste.</b><p>
       </div>
 
     </div>
   </div>
 
 
-  <div class="sign-up"> <!--- sign up section --->
+  <div class="row mb-5">
+    <div class="col-6 mt-3">
+      <p class="registration summary">Own a business that <br>produces excess food?</p>
+      <div class="d-flex justify-content-center">
+        <button type="button" class="btn-lg btn-success">Provider sign up</button>
+      </div>
+    </div>
+
+    <div class="col-6 mt-3">
+
+      <p>Manage a shelter with<br> unfullfiled food needs?</p>
+      <div class="d-flex justify-content-center">
+        <button type="button" class="btn-lg btn-success">Shelter sign up</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-scrolldown"> <!--- info scrolldown bar --->
+
+    <div class="info-bar"> <!--- info text --->
+
+      <div class="justify-content-md-center align-items-center">
+        <p class="info-bar-txt">Brazil is in the grim list of top 10 countries that waste the most food</p>
+      </div>
+
+    </div>
+
+    <div class="info-img"> <!--- info img --->
+      <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1637771779/ex-animo/img2-home-page_xubldb.png",:height=>550, :width=>1450 %>
+    </div>
+
+    <div class="info-bar"> <!--- info text ---->
+
+      <div class="justify-content-md-center align-items-center">
+        <p class="info-bar-txt">Food waste generates a resounding loss of 940 billion dollars per year, affecting not only the less priviliged but also Brazil’s economy</p>
+      </div>
+
+    </div>
+
+    <div class="info-img"> <!--- info img --->
+      <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637771780/ex-animo/Screen_Shot_2021-11-11_at_4.33.37_PM_asmxb7.png",:height=>500, :width=>1450%>
+    </div>
+
+    <div class="info-bar"> <!--- info text --->
+
+      <div class="justify-content-md-center align-items-center">
+        <p class="info-bar-txt">So why not donate the excess food to those in need?</p>
+      </div>
+
+    </div>
+
+    <div class="info-img"> <!--- info img --->
+      <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1637771779/ex-animo/img3-home-page_p0bwc4.png",:height=>600, :width=>1450%>
+    </div>
+  </div>
+
+
+  <div class="sign-up my-5"> <!--- sign up section --->
     <div class=sign-up-bar>
       <h3 class="info-text-bottom">Sign up and start helping your
       <br>local community</h3>
     </div>
 
 
-      <div class="row my-5 pb-5">
-        <div class="col-6 my-5">
-          <p class="registration summary">Own a business that <br>produces excess food?</p>
-          <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-success">Provider sign up</button>
-          </div>
-        </div>
-
-        <div class="col-6 my-5">
-
-          <p>Manage a shelter with<br> unfullfiled food needs?</p>
-          <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-success">Shelter sign up</button>
-          </div>
-        </div>
-      </div>
-
-
-
-
-
   </div>
 
 
 </div>
-
-<p>test</p>
