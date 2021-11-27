@@ -20,8 +20,13 @@
 
           <h4 class="recipe-title"><span class="text-secondary">Category:</span>  <%= offer.category %></h4>
           <p class="card-text"><small class="text-muted"><span class="text-secondary">Total weight: <span><%= offer.total_unit %> (kg) </strong></small></p>
-            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit"/>
-            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Delete"/>
+          <div class="col-md-4">
+
+            <div class="third mt-4">
+              <%= link_to "Edit", edit_food_offer_path(offer), class: "btn btn-outline-info"%>
+              <%= link_to " Delete ❌", my_food_offer_path(offer), method: :delete , class: "btn btn-outline-danger"%>
+            </div>
+          </div>
         </div>
       </div>
     </div>

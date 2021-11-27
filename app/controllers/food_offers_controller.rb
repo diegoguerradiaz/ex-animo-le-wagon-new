@@ -27,8 +27,10 @@ class FoodOffersController < ApplicationController
   def update
     find_offer
     @food_offer.update(food_offer_params)
-    redirect_to food_offers_path(@food_offer)
+    redirect_to my_food_offers_path
   end
+
+
 
   private
 

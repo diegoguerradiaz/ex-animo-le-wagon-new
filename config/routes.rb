@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   namespace :my do
-    resources :food_offers, only: [:index] # Display the 'Offers' for Providers
+    resources :food_offers# Display the 'Offers' for Providers
     resources :orders # Update & display all 'Orders' from any User
   end
 
