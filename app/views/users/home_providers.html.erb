@@ -50,8 +50,8 @@
                           <br><strong>To:</strong> <%= order.end_order_date %>
                           </h6>
                           <div class="third mt-4">
-                            <li><%= link_to "Accept ", my_order_path(order, order: {stage: "Confirmed"}), method: :patch, class: "btn btn-outline-success"%></li>
-                            <li><%= link_to "Decline", my_order_path(order, order: {stage: "Canceled"}), method: :patch, class: "btn btn-outline-danger"%></li>
+                            <%= link_to "Accept ", my_order_path(order, order: {stage: "Confirmed"}), method: :patch, class: "btn btn-outline-success"%>
+                            <%= link_to "Decline", my_order_path(order, order: {stage: "Canceled"}), method: :patch, class: "btn btn-outline-danger"%>
                           </div>
                       <% else %>
                         <div class="image mr-3"> <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637796582/ex-animo/cancel.png", height: 50, width: 50 %></div>

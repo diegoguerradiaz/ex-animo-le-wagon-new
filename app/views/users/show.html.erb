@@ -10,36 +10,38 @@
     <form method="post">
 
       <div class="row">
-        <div class="col-md-4 my-4">
-          <div class="profile-img align-items-left">
-            <%= cl_image_tag "#{@user.photo_url}" ,width: 200, height: 200 %>
-          </div>
-
-            <button class="btn btn-sm btn-outline-success mt-2">
-              Change Photo
-            </button>
-        </div>
 
         <div class="col-md-4">
           <div class="profile-head text-align-left">
-            <p>Name: <%= @user.company_name %></p>
-            <p>Category: <%= @user.category %></p>
-              <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                </li>
-              </ul>
+            <p><%= @user.company_name %></p>
+            <p><%= @user.category %></p>
+            <p><span> Donations: </span><%= @user.food_offers.count %></p>
           </div>
         </div>
-        <div class="col-md-4">
-            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit"/>
-            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Delete"/>
-        </div>
+          <div class="col-md-4 my-4 align-items-center">
+            <div class="profile-img align-items-left">
+              <%= cl_image_tag "#{@user.photo_url}" ,width: 200, height: 200 %>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+              <%= link_to "Edit", edit_user_registration_path(current_user), class: "btn btn-outline-info"%>
+              <%= link_to "Delete", user_registration_path(current_user), method: :delete, data: { confirm: "Really delete this user?" } , class: "btn btn-outline-danger"%>
+              <div>
+                <button class="btn btn-sm btn-outline-success mt-2">
+                  Change Photo
+                </button>
+              </div>
+          </div>
+
+
+
       </div>
 
       <div class="row">
         <div class="col-md-4 my-4">
           <div class="profile-work">
+
             <span>Phone: <a href=""><%= @user.phone_number %></a><br/></span>
             <span>Email: <a href=""><%= @user.email %></a><br/></span>
           </div>
@@ -47,7 +49,12 @@
 
         <div class="col-md-8">
           <div class="tab-content profile-tab" id="myTabContent">
-            <div class="tab-pane fade show active my-4 pr-3" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                </li>
+              </ul>
+            <div class="tab-pane fade show active mb-2 pr-3" id="home" role="tabpanel" aria-labelledby="home-tab">
 
               <div class="row">
                 <div class="col-md-4">

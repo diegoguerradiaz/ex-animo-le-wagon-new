@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+  delete "users/:id", to: "users#destroy"
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
   get '/users/:id/home_providers', to: 'users#home_providers', as: 'home_providers'
   get '/users/:id/home_shelters', to: 'users#home_shelters', as: 'home_shelters'
 
@@ -18,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   namespace :my do
-    resources :food_offers, only: [:index] # Display the 'Offers' for Providers
+    resources :food_offers# Display the 'Offers' for Providers
     resources :orders # Update & display all 'Orders' from any User
   end
 

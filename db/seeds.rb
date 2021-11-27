@@ -54,3 +54,31 @@ shelter2 = User.create(
   password: "123456",
   photo_url: "https://res.cloudinary.com/dnczymjwi/image/upload/v1637871335/ex-animo/mission_krcfpz.jpg"
 )
+
+food_offer_1 = FoodOffer.create (
+  category: "Nutrients & Vegetables",
+  total_unit: 20,
+  offer_name: "Donation for the ones in need 🙌🙏",
+  user_id: 1,
+  offer_description: "Greens, fruits, beans, milk and much more.",
+  delivery: true
+)
+
+
+food_offer_2 = FoodOffer.create (
+  category: "Vegetables",
+  total_unit: 20,
+  offer_name: "Donation for the ones in need 🙌🙏",
+  user_id: 1,
+  offer_description: "Greens and veggies",
+  delivery: true
+)
+
+food_offer_3 = FoodOffer.create (
+  category: "Meals for kids",
+  total_unit: 80,
+  offer_name: "Pre-made meals for the ones in need 🙌🙏",
+  user_id: 2,
+  offer_description: "100 pre-made meals.",
+  delivery: true
+)
