@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+  delete "users/:id", to: "users#destroy"
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
   get '/users/:id/home_providers', to: 'users#home_providers', as: 'home_providers'
   get '/users/:id/home_shelters', to: 'users#home_shelters', as: 'home_shelters'
 

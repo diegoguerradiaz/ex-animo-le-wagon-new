@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
     else
       render :new
     end
-
   end
 
   private
@@ -19,4 +18,5 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:start_order_date, :end_order_date, :stage)
   end
+
 end

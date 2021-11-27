@@ -5,18 +5,21 @@ class My::OrdersController < ApplicationController
     @orders = current_user.orders
   end
 
-  # Finds the order & updates the 'Stage' field of the Order
   def update
     set_order
     @order.update(set_params)
-    redirect_to home_providers_path
+    if current_user.role == "Provider"
+      redirect_to home_providers_path
+    else
+      redirect_to home_shelters_path
+    end
   end
 
   def destroy
     set_order
     @order.user = current_user
     @order.destroy
-    redirect_to home_providers_path
+    redirect_to my_orders_path
   end
 
   private
@@ -28,4 +31,5 @@ class My::OrdersController < ApplicationController
   def set_params
     params.require(:order).permit(:stage)
   end
+
 end
