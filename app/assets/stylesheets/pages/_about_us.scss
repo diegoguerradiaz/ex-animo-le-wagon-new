@@ -1,3 +1,24 @@
+body {
+  background-color: white;
+}
+
 .footer-box {
-  color: white;
+  background-color: #abcea9;
+}
+
+a {
+  color: gray;
+}
+
+a:hover {
+  text-decoration: none !important;
+  color: black;
+}
+
+h5 {
+  color: #283747;
+}
+
+#follow-us {
+    text-align:center;
 }
