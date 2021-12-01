@@ -4,11 +4,17 @@
     <div class="card m-4" style="max-width: 720px;">
       <div class="row">
         <h4>Select the dates you want to pick up the donation</h4>
-        <%= simple_form_for([@food_offer,@order]) do |f| %>
-          <%= f.input :start_order_date, label: "Start Date", as: :date, input_html: {class: "datepicker"} %>
-          <%= f.input :end_order_date, label: "End Date", as: :date, input_html: {class: "datepicker"} %>
-          <%= f.submit "Request", class: "btn btn-outline-success" %>
-        <% end %>
+        <div class="container">
+          <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+            <h2>Flatpickr Demo</h2>
+
+            <%= simple_form_for :search, method: "get" do |f| %>
+              <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+              <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+              <%= f.button :submit, "Go", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
         <div class="col-md-6 ml-3">
           <%= cl_image_tag "#{@food_offer.user.photo_url}",width: 300, height: 250 %>
         </div>
