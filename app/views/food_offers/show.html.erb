@@ -5,14 +5,13 @@
 
   <div class="card">
     <div class="card-header">
-      <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+      <%= cl_image_tag "#{@food_offer.user.photo_url}",width: 300, height: 250 %>
     </div>
     <div class="card-body">
       <span class="tag tag-teal"><%= @food_offer.category %></span>
       <h4>Provider name: <%=@food_offer.user.company_name %></h4>
       <p>Food offer details: <%= @food_offer.offer_description %></p>
       <div class="user">
-        <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
         <div class="user-info">
           <h5>Offer posted on <%= @food_offer.created_at.strftime('%d-%b-%Y') %></h5>
           <small>
@@ -23,42 +22,16 @@
           </small>
         </div>
       </div>
+        <p></p>
+      <h5>Select the dates you want to pick up the donation</h5>
+        <%= simple_form_for([@food_offer,@order]) do |f| %>
+          <%= f.input :start_order_date, label: "Start Date", as: :date, input_html: {class: "datepicker"} %>
+          <%= f.input :end_order_date, label: "End Date", as: :date, input_html: {class: "datepicker"} %>
+          <%= f.submit "Request", class: "btn btn-outline-success" %>
+        <% end %>
     </div>
   </div>
 
 
 
   <!-- TEST DESIGN FOR NEW CARD end -->
-
-
-
-  <div class="container justify-content-center">
-    <div class="card m-4" style="max-width: 720px;">
-      <div class="row">
-        <h4>Select the dates you want to pick up the donation</h4>
-        <%= simple_form_for([@food_offer,@order]) do |f| %>
-          <%= f.input :start_order_date, label: "Start Date", as: :date, input_html: {class: "datepicker"} %>
-          <%= f.input :end_order_date, label: "End Date", as: :date, input_html: {class: "datepicker"} %>
-          <%= f.submit "Request", class: "btn btn-outline-success" %>
-        <% end %>
-        <div class="col-md-6 ml-3">
-          <%= cl_image_tag "#{@food_offer.user.photo_url}",width: 300, height: 250 %>
-        </div>
-        <div class="col-md-6">
-
-          <div class="card-body">
-            <p class="recipe-tags">
-              <span class="recipe-tag"><%= @food_offer.user.company_name %> - </span>
-              <span class="recipe-tag"><%= @food_offer.category %></span>
-            </p>
-            <p class="recipe-metadata">
-              <span class="recipe-rating">★★★★<span>☆</span></span>
-              <span class="recipe-votes">(12 votes)</span>
-            </p>
-            <h4 class="recipe-title text-secondary"><%= @food_offer.offer_description %></h4>
-            <p class="card-text"><small class="text-muted">Total weight: <strong><%= @food_offer.total_unit %> (kg) </strong></small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
