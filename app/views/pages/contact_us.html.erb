@@ -1,1 +1,47 @@
-<h1>Contact us</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-2">
+      <div class="text-intro-title my-5">
+        <h2 class="text-center">Contact us</h2>
+        <style>
+          .box {
+            width: 400px;
+              height: 500px;
+              margin: 5px;
+              border-radius: 10%;
+          }
+          .inner-border {
+            border: 1px lightgrey;
+              box-shadow: inset 0px 0px 0px 1px lightgrey;
+          }
+        </style>
+        <div class="container text-center row justify-content-center">
+        <div class="row justify-content-center">
+        <div class="box inner-border">
+        <form>
+        <br>
+          Name:<br>
+          <input type="text-center" class="corner" name="name" placeholder="Name">
+          <br>
+          E-mail:<br>
+          <input type="text-center" class="corner" name="email" placeholder="E-mail">
+          <br>
+          <label class="my-2" for="Role">Role:</label>
+          <select>
+            <option value="shelter">Shelter</option>
+            <option value="provider">Provider</option>
+            <option value="others">Other</option>
+          </select>
+          <br>
+          Message:<br>
+          <textarea rows="5" cols="19" name="Message" placeholder="Type your message"></textarea>
+          <br>
+          <input style="background-color: #abcea9;" type="submit" onclick="alert('Submitted!')" text="Submit">
+        </form>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
