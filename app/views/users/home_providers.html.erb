@@ -1,78 +1,86 @@
 <%= render template: "users/show" %>
-<div class="text-center my-4">
-  <h3>See all the updates of your donations!</h3>
-</div>
-
+<% if current_user.order_ids.empty? %>
+  <div class="card-body m-4 text-center">
+    <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1638315015/ex-animo/no-content_mhmziv.png", height: 100, width: 100 %>
+    <p class="card-title">No orders found</p>
+    <span>Looks like you got no orders yet..</span>
+  </div>
+<% else %>
   <div class="container mt-5 d-flex justify-content-center">
       <div class="row">
-        <% @food_offers.each do |offer| %>
-          <% offer.orders.each do |order| %>
-              <div class="card p-4 m-3 rounded">
-                  <div class="first">
-                    <h6 class="heading"><%= order.user.company_name %></h6>
-                    <div class="time d-flex flex-row align-items-center justify-content-between mt-3">
-                      <div class="d-flex align-items-center"> <i class="fa fa-clock-o clock"></i> <strong class="hour ml-1"><%= order.user.category %></strong> </div>
-                      <div><span class="font-weight-bold"></span> <%= link_to "🗑", my_order_path(order), method: :delete %></div>
-                    </div>
-                  </div>
-                  <div class="second d-flex flex-row mt-2">
-
-                      <% if order.stage === "Confirmed" %>
-                        <div class="image mr-3"> <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637796582/ex-animo/done.png", height: 50, width: 50 %></div>
-                          <div class="">
-                            <div class="d-flex flex-row mb-1">
-                              <div class="ratings ml-2 pt-3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
-                            </div>
-                          </div>
+          <% @food_offers.each do |offer| %>
+            <% if offer.orders.nil? %>
+              <% got_some_orders = got_some_orders + 1  %>
+            <% else %>
+              <% offer.orders.each do |order| %>
+                <div class="card p-4 m-3 rounded">
+                      <div class="first">
+                        <h6 class="heading"><%= order.user.company_name %></h6>
+                        <div class="time d-flex flex-row align-items-center justify-content-between mt-3">
+                          <div class="d-flex align-items-center"> <i class="fa fa-clock-o clock"></i> <strong class="hour ml-1"><%= order.user.category %></strong> </div>
+                          <div><span class="font-weight-bold"></span> <%= link_to "Delete ❌ ", my_order_path(order), method: :delete, class: "btn btn-outline-danger" %></div>
                         </div>
-                        <hr class="line-color">
-                        <h6>Donated: "<%= offer.offer_name %>"</h6>
-                        <hr class="line-color">
+                      </div>
+                        <div class="second d-flex flex-row mt-2">
+                            <% if order.stage === "Confirmed" %>
+                              <div class="image mr-3"> <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637796582/ex-animo/done.png", height: 50, width: 50 %></div>
+                                <div class="">
+                                  <div class="d-flex flex-row mb-1">
+                                    <div class="ratings ml-2 pt-3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <hr class="line-color">
+                              <h6>Donated: "<%= offer.offer_name %>"</h6>
+                              <hr class="line-color">
 
-                        <h6><strong>From:</strong> <%= order.start_order_date %>
-                        <br><strong>To:</strong> <%= order.end_order_date %>
-                        </h6>
-                        <div class="third mt-4"> <button class="btn btn-success btn-block">Accepted 🎉 </button>
-                        </div>
-                      <% elsif order.stage === "Pending Validation" %>
-                        <div class="image mr-3"> <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637796581/ex-animo/pending.png", height: 50, width: 50 %></div>
-                          <div class="">
-                            <div class="d-flex flex-row mb-1">
-                              <div class="ratings ml-2 pt-3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
-                            </div>
-                          </div>
-                        </div>
-                        <hr class="line-color">
-                          <h6>Requested: "<%= offer.offer_name %>"</h6>
-                          <hr class="line-color">
+                              <h6><strong>From:</strong> <%= order.start_order_date %>
+                              <br><strong>To:</strong> <%= order.end_order_date %>
+                              </h6>
+                              <div class="third mt-4"> <button class="btn btn-success btn-block">Accepted 🎉 </button>
+                              </div>
+                            <% elsif order.stage === "Pending Validation" %>
+                              <div class="image mr-3"> <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637796581/ex-animo/pending.png", height: 50, width: 50 %></div>
+                                <div class="">
+                                  <div class="d-flex flex-row mb-1">
+                                    <div class="ratings ml-2 pt-3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <hr class="line-color">
+                                <h6>Requested: "<%= offer.offer_name %>"</h6>
+                                <hr class="line-color">
 
-                          <h6><strong>From:</strong> <%= order.start_order_date %>
-                          <br><strong>To:</strong> <%= order.end_order_date %>
-                          </h6>
-                          <div class="third mt-4">
-                            <%= link_to "Accept ", my_order_path(order, order: {stage: "Confirmed"}), method: :patch, class: "btn btn-outline-success"%>
-                            <%= link_to "Decline", my_order_path(order, order: {stage: "Canceled"}), method: :patch, class: "btn btn-outline-danger"%>
-                          </div>
-                      <% else %>
-                        <div class="image mr-3"> <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637796582/ex-animo/cancel.png", height: 50, width: 50 %></div>
-                          <div class="">
-                            <div class="d-flex flex-row mb-1">
-                              <div class="ratings ml-2 pt-3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
-                            </div>
-                          </div>
-                        </div>
-                        <hr class="line-color">
-                          <h6>Canceled: "<%= offer.category %>"</h6>
-                          <hr class="line-color">
+                                <h6><strong>From:</strong> <%= order.start_order_date %>
+                                <br><strong>To:</strong> <%= order.end_order_date %>
+                                </h6>
+                                <div class="third mt-4">
+                                  <%= link_to "Accept ", my_order_path(order, order: {stage: "Confirmed"}), method: :patch, class: "btn btn-outline-success"%>
+                                  <%= link_to "Decline", my_order_path(order, order: {stage: "Canceled"}), method: :patch, class: "btn btn-outline-danger"%>
+                                </div>
+                            <% else %>
+                              <div class="image mr-3"> <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637796582/ex-animo/cancel.png", height: 50, width: 50 %></div>
+                                <div class="">
+                                  <div class="d-flex flex-row mb-1">
+                                    <div class="ratings ml-2 pt-3"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <hr class="line-color">
+                                <h6>Canceled: "<%= offer.category %>"</h6>
+                                <hr class="line-color">
 
-                          <h6><strong>From:</strong> <%= order.start_order_date %>
-                          <br><strong>To:</strong> <%= order.end_order_date %>
-                          </h6>
-                          <div class="third mt-4"> <button class="btn btn-success btn-block">Canceled 💔 </button>
-                          </div>
-                      <% end %>
-              </div>
-          <% end %>
+                                <h6><strong>From:</strong> <%= order.start_order_date %>
+                                <br><strong>To:</strong> <%= order.end_order_date %>
+                                </h6>
+                                <div class="third mt-4"> <button class="btn btn-success btn-block">Canceled 💔 </button>
+                                </div>
+                            <% end %>
+                </div>
+            <% end %>
+
+          <% end  %>
         <% end %>
       </div>
   </div>
+<% end %>

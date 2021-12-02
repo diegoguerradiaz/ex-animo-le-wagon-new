@@ -19,7 +19,11 @@ class My::OrdersController < ApplicationController
     set_order
     @order.user = current_user
     @order.destroy
-    redirect_to my_orders_path
+    if current_user.role == "Provider"
+      redirect_to home_providers_path
+    else
+      redirect_to home_shelters_path
+    end
   end
 
   private
