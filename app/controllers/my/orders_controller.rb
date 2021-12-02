@@ -8,11 +8,7 @@ class My::OrdersController < ApplicationController
   def update
     set_order
     @order.update(set_params)
-    if current_user.role == "Provider"
-      redirect_to home_providers_path
-    else
-      redirect_to home_shelters_path
-    end
+      redirect_to root_path
   end
 
   def destroy

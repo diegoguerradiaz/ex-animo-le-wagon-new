@@ -1,17 +1,7 @@
 <%= render template: "users/show" %>
-<% if current_user.order_ids.empty? %>
-  <div class="card-body m-4 text-center">
-    <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1638315015/ex-animo/no-content_mhmziv.png", height: 100, width: 100 %>
-    <p class="card-title">No orders found</p>
-    <span>Looks like you got no orders yet..</span>
-  </div>
-<% else %>
   <div class="container mt-5 d-flex justify-content-center">
       <div class="row">
           <% @food_offers.each do |offer| %>
-            <% if offer.orders.nil? %>
-              <% got_some_orders = got_some_orders + 1  %>
-            <% else %>
               <% offer.orders.each do |order| %>
                 <div class="card p-4 m-3 rounded">
                       <div class="first">
@@ -77,10 +67,8 @@
                                 </div>
                             <% end %>
                 </div>
-            <% end %>
 
           <% end  %>
         <% end %>
       </div>
   </div>
-<% end %>
