@@ -3,11 +3,11 @@
 <div class="d-flex justify-content-center">
 
 
-  <div class="card">
-    <div class="card-header bg-white">
+  <div class="idcard">
+    <div class="idcard-header bg-white">
       <%= cl_image_tag "#{@food_offer.user.photo_url}",width: 300, height: 250 %>
     </div>
-    <div class="card-body">
+    <div class="idcard-body">
       <span class="tag tag-teal"><%= @food_offer.category %></span>
       <h4>Provider name: <%=@food_offer.user.company_name %></h4>
       <p>Food offer details: <%= @food_offer.offer_description %></p>

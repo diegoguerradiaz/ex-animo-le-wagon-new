@@ -19,7 +19,7 @@ url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 //   justify-content: space-evenly;
 //   flex-wrap: wrap;
 // }
-.card {
+.idcard {
   margin: 10px;
   background-color: #fff;
   border-radius: 10px;
@@ -27,14 +27,14 @@ url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
   overflow: hidden;
   width: 700px;
 }
-.card-header img {
+.idcard-header img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   background-color: white;
   color: white;
 }
-.card-body {
+.idcard-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
