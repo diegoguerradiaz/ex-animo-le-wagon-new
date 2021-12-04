@@ -1,4 +1,67 @@
+<div class="container bg-secondary">
+
+  <% @food_offers.each do |offer| %> <!-- offer iteration start -->
+
+
+    <div class="row justify-content-center">
+      <div class="col-7">
+
+        <div class="company-info-outer bg-light my-5"> <!-- info outer start -->
+
+          <div class="company-info-inner p-4"> <!-- info inner start -->
+
+            <div class="row pt-3 pb-5"> <!-- image -->
+              <div class="col-6">
+                <%= cl_image_tag "#{current_user.photo_url}", width: 300, height: 300 %>
+              </div>
+
+              <div class="col-6"> <!-- company details -->
+                <div class="company-name">
+                  <%= current_user.company_name %>
+                </div>
+                <div class="company-rating">
+                  <span class="offer-rating">★★★★<span>☆</span></span>
+                  <span class="offer-votes">(12 votes)</span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="offer-info-box"> <!-- offer info start -->
+                <div class="row">
+                  <div class="col-6">
+                    <h5><%= offer.category %></h5>
+                  </div>
+                  <div class="col-6">
+                    <h5><%= offer.total_unit %></h5>
+                  </div>
+                </div>
+            </div> <!-- offer info end -->
+
+          </div> <!-- info inner end -->
+
+
+        </div> <!-- info outer end -->
+
+      </div>
+    </div>
+
+  <% end %> <!-- offer iteration end -->
+
+</div>
+
+
+
+
+
+
+
+
+
 <%= link_to "Create new food offer", new_food_offer_path %>
+
+
+
 
 <% @food_offers.each do |offer| %>
   <div class="card sm-4" style="max-width: 720px;">
