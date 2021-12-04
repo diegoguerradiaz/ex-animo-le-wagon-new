@@ -1,4 +1,81 @@
+<div class="container">
+
+  <% @food_offers.each do |offer| %> <!-- offer iteration start -->
+
+
+    <div class="row justify-content-center">
+      <div class="col-6">
+
+        <div class="company-info-outer my-5"> <!-- info outer start -->
+
+          <div class="company-info-inner shadow p-3 p-4"> <!-- info inner start -->
+
+            <div class="row pt-3 pb-5 align-items-center"> <!-- image -->
+              <div class="col-6">
+                <%= cl_image_tag "#{current_user.photo_url}", width: 250, height: 250 %>
+              </div>
+
+              <div class="col-6 align-items-center">
+                <div style="text-align: center;" class="company-name"> <!-- company details start -->
+                  <h4><%= current_user.company_name %></h4>
+                </div>
+                <div style="text-align: center;" class="company-rating">
+                  <span class="offer-rating">★★★★<span>☆</span></span>
+                  <span class="offer-votes">(12 votes)</span>
+                </div>
+                <!-- company details end -->
+                <p class="space py-2">
+                </p>
+                <!-- offer info start -->
+
+
+                <div style="text-align: center;" class="offer-category my-2">
+                  <h5 class="tag-my-show tag-teal py-2"><%= offer.category %> / <%= offer.total_unit %> kgs </h5>
+                </div>
+                <div style="text-align: center;" class="offer-unit">
+                  <p><%= offer.offer_description %></p>
+                </div>
+                <!-- offer info end -->
+
+                <!-- buttons start -->
+
+                <div style="text-align: center;" class="third mt-5">
+                  <%= link_to "Edit", edit_food_offer_path(offer), class: "btn btn-primary"%>
+                  <%= link_to "Delete", my_food_offer_path(offer), method: :delete , class: "btn btn-primary"%>
+                </div>
+
+                <!-- buttons end -->
+
+
+              </div>
+            </div>
+
+
+
+          </div> <!-- info inner end -->
+
+
+        </div> <!-- info outer end -->
+
+      </div>
+    </div>
+
+  <% end %> <!-- offer iteration end -->
+
+</div>
+
+
+
+
+
+
+
+
+
 <%= link_to "Create new food offer", new_food_offer_path %>
+
+
+
 
 <% @food_offers.each do |offer| %>
   <div class="card sm-4" style="max-width: 720px;">
