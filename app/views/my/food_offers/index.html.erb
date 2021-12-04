@@ -1,14 +1,14 @@
-<div class="container bg-secondary">
+<div class="container">
 
   <% @food_offers.each do |offer| %> <!-- offer iteration start -->
 
 
     <div class="row justify-content-center">
-      <div class="col-7">
+      <div class="col-6">
 
-        <div class="company-info-outer bg-light my-5"> <!-- info outer start -->
+        <div class="company-info-outer my-5"> <!-- info outer start -->
 
-          <div class="company-info-inner p-4"> <!-- info inner start -->
+          <div class="company-info-inner shadow p-3 p-4"> <!-- info inner start -->
 
             <div class="row pt-3 pb-5 align-items-center"> <!-- image -->
               <div class="col-6">
@@ -27,8 +27,10 @@
                 <p class="space py-2">
                 </p>
                 <!-- offer info start -->
-                <div style="text-align: center;" class="offer-category">
-                  <h5><%= offer.category %> / <%= offer.total_unit %> kgs </h5>
+
+
+                <div style="text-align: center;" class="offer-category my-2">
+                  <h5 class="tag-my-show tag-teal py-2"><%= offer.category %> / <%= offer.total_unit %> kgs </h5>
                 </div>
                 <div style="text-align: center;" class="offer-unit">
                   <p><%= offer.offer_description %></p>
