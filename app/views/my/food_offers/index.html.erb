@@ -10,33 +10,45 @@
 
           <div class="company-info-inner p-4"> <!-- info inner start -->
 
-            <div class="row pt-3 pb-5"> <!-- image -->
+            <div class="row pt-3 pb-5 align-items-center"> <!-- image -->
               <div class="col-6">
-                <%= cl_image_tag "#{current_user.photo_url}", width: 300, height: 300 %>
+                <%= cl_image_tag "#{current_user.photo_url}", width: 250, height: 250 %>
               </div>
 
-              <div class="col-6"> <!-- company details -->
-                <div class="company-name">
-                  <%= current_user.company_name %>
+              <div class="col-6 align-items-center">
+                <div style="text-align: center;" class="company-name"> <!-- company details start -->
+                  <h4><%= current_user.company_name %></h4>
                 </div>
-                <div class="company-rating">
+                <div style="text-align: center;" class="company-rating">
                   <span class="offer-rating">★★★★<span>☆</span></span>
                   <span class="offer-votes">(12 votes)</span>
                 </div>
-              </div>
+                <!-- company details end -->
+                <p class="space py-2">
+                </p>
+                <!-- offer info start -->
+                <div style="text-align: center;" class="offer-category">
+                  <h5><%= offer.category %> / <%= offer.total_unit %> kgs </h5>
+                </div>
+                <div style="text-align: center;" class="offer-unit">
+                  <p><%= offer.offer_description %></p>
+                </div>
+                <!-- offer info end -->
 
+                <!-- buttons start -->
+
+                <div style="text-align: center;" class="third mt-5">
+                  <%= link_to "Edit", edit_food_offer_path(offer), class: "btn btn-primary"%>
+                  <%= link_to "Delete", my_food_offer_path(offer), method: :delete , class: "btn btn-primary"%>
+                </div>
+
+                <!-- buttons end -->
+
+
+              </div>
             </div>
 
-            <div class="offer-info-box"> <!-- offer info start -->
-                <div class="row">
-                  <div class="col-6">
-                    <h5><%= offer.category %></h5>
-                  </div>
-                  <div class="col-6">
-                    <h5><%= offer.total_unit %></h5>
-                  </div>
-                </div>
-            </div> <!-- offer info end -->
+
 
           </div> <!-- info inner end -->
 
