@@ -73,39 +73,3 @@
 
 
 <%= link_to "Create new food offer", new_food_offer_path %>
-
-
-
-
-<% @food_offers.each do |offer| %>
-  <div class="card sm-4" style="max-width: 720px;">
-    <div class="row">
-      <div class="col-md-6">
-        <%= cl_image_tag "#{current_user.photo_url}", width: 300, height: 300 %>
-      </div>
-      <div class="col-md-6">
-          <p class="recipe-metadata">
-            <span class="recipe-rating">★★★★<span>☆</span></span>
-            <span class="recipe-votes">(12 votes)</span>
-          </p>
-
-        <div class="card-body">
-          <h4 class="recipe-title"><span class="text-secondary">Title:</span> <%= offer.offer_name %></h4>
-          <h4 class="recipe-title"><span class="text-secondary">Description:</span>
-            <br><%= offer.offer_description %>
-          </h4>
-
-          <h4 class="recipe-title"><span class="text-secondary">Category:</span>  <%= offer.category %></h4>
-          <p class="card-text"><small class="text-muted"><span class="text-secondary">Total weight: <span><%= offer.total_unit %> (kg) </strong></small></p>
-          <div class="col-md-4">
-
-            <div class="third mt-4">
-              <%= link_to "Edit", edit_food_offer_path(offer), class: "btn btn-outline-info"%>
-              <%= link_to " Delete ❌", my_food_offer_path(offer), method: :delete , class: "btn btn-outline-danger"%>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
