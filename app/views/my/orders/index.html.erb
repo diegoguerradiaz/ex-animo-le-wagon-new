@@ -1,3 +1,98 @@
+
+<div class="container">
+
+  <% @orders.each do |order| %> <!-- offer iteration start -->
+
+
+    <div class="row justify-content-center">
+      <div class="col-6">
+
+        <div class="company-info-outer my-5"> <!-- info outer start -->
+
+          <div class="company-info-inner shadow p-3 p-4"> <!-- info inner start -->
+
+            <div class="row pt-3 pb-5 align-items-center"> <!-- image -->
+              <div class="col-6">
+                <%= cl_image_tag "#{order.food_offer.user.photo_url}", width: 250, height: 250 %>
+              </div>
+
+              <div class="col-6 align-items-center">
+                <div style="text-align: center;" class="company-name"> <!-- company details start -->
+                  <h4> <%= order.food_offer.user.company_name %> </h4>
+                </div>
+                <div style="text-align: center;" class="company-rating">
+                  <span class="offer-rating">★★★★<span>☆</span></span>
+                  <span class="offer-votes">(12 votes)</span>
+                </div>
+                <!-- company details end -->
+                <p class="space py-2">
+                </p>
+                <!-- offer info start -->
+
+
+                <div style="text-align: center;" class="offer-category my-2">
+                  <h5 class="tag-my-show tag-teal py-2"> <%= order.food_offer.category %> /  <%= order.food_offer.total_unit %>  kgs </h5>
+                </div>
+                <div style="text-align: center;" class="offer-unit">
+                  <p> <%= order.food_offer.offer_description %></p>
+                </div>
+                <!-- offer info end -->
+
+                <!-- buttons start -->
+
+                <div style="text-align: center;" class="third mt-5">
+                  <%= link_to "Delete", my_order_path(order), method: :delete , class: "btn btn-primary"%>
+                </div>
+
+                <!-- buttons end -->
+
+
+              </div>
+            </div>
+
+            <div class="status-bar"> <!-- status begining -->
+              <div class="row">
+                <div class="col-6">
+                  <p>ACCEPTED</p>
+                </div>
+
+                <div class="col-6">
+                  <p>TEST 2</p>
+                </div>
+
+
+
+
+              </div>
+
+
+            </div> <!-- status end -->
+
+
+
+          </div> <!-- info inner end -->
+
+
+        </div> <!-- info outer end -->
+
+      </div>
+    </div>
+
+  <% end %> <!-- offer iteration end -->
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="text-center my-4">
   <h3>See all the updates of your orders!</h3>
 </div>
