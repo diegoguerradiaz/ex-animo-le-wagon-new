@@ -8,10 +8,9 @@
               <div class="card p-4 m-3 rounded">
 
                   <div class="first">
-                    <h6 class="heading"><%= order.user.company_name %></h6>
+                    <h6 class="heading"><%= order.food_offer.user.company_name %></h6>
                     <div class="time d-flex flex-row align-items-center justify-content-between mt-3">
-                      <div class="d-flex align-items-center"> <i class="fa fa-clock-o clock"></i> <strong class="hour ml-1"><%= order.user.category %></strong> </div>
-                      <div><span class="font-weight-bold"></span> <%= link_to "Delete ❌ ", my_order_path(order), method: :delete , class: "btn btn-outline-danger ml-3" %></div>
+                      <div class="d-flex align-items-center"> <i class="fa fa-clock-o clock"></i> <strong class="hour ml-1"><%= order.food_offer.user.category %></strong> </div>
 
                     </div>
                   </div>
@@ -31,6 +30,8 @@
                         </h6>
                         <div class="third mt-4"> <button class="btn btn-success btn-block">Accepted 🎉 </button>
                         </div>
+                        <div><span class="font-weight-bold"></span> <%= link_to "Delete ❌ ", my_order_path(order), method: :delete , class: "btn btn-outline-danger ml-3" %></div>
+
                       <% elsif order.stage === "Pending Validation" %>
                         <div class="image mr-3"> <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637796581/ex-animo/pending.png", height: 50, width: 50 %></div>
                           <div class="">
@@ -46,6 +47,8 @@
                           </h6>
                           <div class="third mt-4"> <button class="btn btn-info btn-block">Pending </button>
                           </div>
+                          <div><span class="font-weight-bold"></span> <%= link_to "Delete ❌ ", my_order_path(order), method: :delete , class: "btn btn-outline-danger ml-3" %></div>
+
                       <% else %>
                         <div class="image mr-3"> <%= cl_image_tag "https://res.cloudinary.com/dnczymjwi/image/upload/v1637796582/ex-animo/cancel.png", height: 50, width: 50 %></div>
                           <div class="">
@@ -60,6 +63,8 @@
                           </h6>
                           <div class="third mt-4"> <button class="btn btn-danger btn-block">Canceled 💔 </button>
                           </div>
+                          <div><span class="font-weight-bold"></span> <%= link_to "Delete ❌ ", my_order_path(order), method: :delete , class: "btn btn-outline-danger ml-3" %></div>
+
                       <% end %>
               </div>
         <% end %>
