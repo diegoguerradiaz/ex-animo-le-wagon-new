@@ -1,9 +1,9 @@
 <div class="container">
 
-  <div class="food-offer-intro">
-    <p class="registration summary">Own a business that <br>produces excess food?</p>
-    <div class="align-items-center">
-      <%= link_to 'Provider sign up', new_food_offer_path, class: 'btn-success btn-lg' %>
+  <div class="food-offer-intro mt-5">
+    <h3 class="text-center">Ready to start donating your excess food to those in need?</h3>
+    <div class="row justify-content-center">
+      <div> <%= link_to 'Create new food offer', new_food_offer_path, class: 'btn-success btn-lg' %> </div>
     </div>
   </div>
   <% @food_offers.each do |offer| %> <!-- offer iteration start -->
