@@ -1,4 +1,124 @@
 <%= render template: "users/show" %>
+
+  <div class="container">
+
+    <% @food_offers.each do |offer| %> <!-- offer iteration start -->
+      <% offer.orders.each do |order| %>
+
+        <div class="row justify-content-center">
+          <div class="col-6">
+
+            <div class="company-info-outer my-5"> <!-- info outer start -->
+
+              <div class="company-info-inner shadow p-3 p-4"> <!-- info inner start -->
+
+                <div class="row pt-3 pb-5 align-items-center"> <!-- image -->
+                  <div class="col-6">
+                    <%= cl_image_tag "#{order.user.photo_url}", width: 250, height: 250 %>
+                  </div>
+                  <div class="col-6 align-items-center">
+                    <div style="text-align: center;" class="company-name"> <!-- company details start -->
+                      <h4> <%= order.user.company_name %> </h4>
+                    </div>
+                    <div style="text-align: center;" class="company-rating">
+                      <span class="offer-rating">★★★★<span>☆</span></span>
+                      <span class="offer-votes">(12 votes)</span>
+                    </div>
+                    <!-- company details end -->
+                    <p class="space py-2">
+                    </p>
+                    <!-- offer info start -->
+
+                    <div style="text-align: center;" class="offer-category mt-2 mb-4">
+                      <h5> <b>Food offer requested:</b> </h5>
+                    </div>
+
+                    <div style="text-align: center;" class="offer-category my-2">
+                      <h5> <%= order.food_offer.category %> /  <%= order.food_offer.total_unit %>  kgs </h5>
+                    </div>
+                    <div style="text-align: center;" class="offer-unit">
+                      <p> <%= order.food_offer.offer_description %></p>
+                    </div>
+                    <!-- offer info end -->
+
+                    <!-- buttons start -->
+
+                    <div style="text-align: center;" class="third mt-5">
+                      <%= link_to "REJECT", my_order_path(order), method: :delete , class: "btn btn-primary"%>
+                    </div>
+
+                    <!-- buttons end -->
+
+
+                  </div>
+                </div>
+
+                <div class="status-bar"> <!-- status begining -->
+                  <div class="line-separator">
+                    <hr>
+                  </div>
+                  <div class="row">
+                      <div class="col-6">
+                        <div>
+                          <p><b>ORDER STATUS</b></p>
+                        </div>
+                    <% if order.stage === "Confirmed" %>
+                        <div>
+                          <p>ACCEPTED</p>
+                          <!-- <div class="third mt-4"> <button class="btn btn-success btn-block">Accepted 🎉 </button> -->
+                        </div>
+                    <% elsif order.stage === "Pending Validation" %>
+                        <div>
+                          <p>PENDING</p>
+                          <!-- <div class="third mt-4"> <button class="btn btn-info btn-block">Pending </button> -->
+                        </div>
+                    <% else %>
+                        <div>
+                          <p>CANCELLED</p>
+                          <!-- <div class="third mt-4"> <button class="btn btn-danger btn-block">Canceled </button> -->
+                        </div>
+                    <% end %>
+                      </div>
+                    <div class="col-6">
+                      <div class="pickup-time">
+                        <p><b>REQUESTED PICKUP TIME</b></p>
+                        <p><%= order.start_order_date.strftime("%b %-d, %Y - %H:%M") %></p>
+                        <p><%= order.end_order_date.strftime("%b %-d, %Y - %H:%M") %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- status end -->
+              </div> <!-- info inner end -->
+            </div> <!-- info outer end -->
+          </div>
+        </div>
+      <% end %>
+    <% end %> <!-- offer iteration end -->
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
   <div class="container mt-5 d-flex justify-content-center">
       <div class="row">
           <% @food_offers.each do |offer| %>
@@ -72,3 +192,6 @@
         <% end %>
       </div>
   </div>
+
+
+-->
