@@ -30,7 +30,9 @@
     <div class="col-6 mt-3">
       <p class="registration summary">Own a business that <br>produces excess food?</p>
       <div class="d-flex justify-content-center">
-        <button type="button" class="btn-lg btn-success">Provider sign up</button>
+        <div>
+          <%= link_to 'Provider sign up', new_user_registration_path(@user), :class => "btn-lg btn-success" %>
+        </div>
       </div>
     </div>
 
