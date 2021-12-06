@@ -31,7 +31,7 @@
       <p class="registration summary">Own a business that <br>produces excess food?</p>
       <div class="d-flex justify-content-center">
         <div>
-          <%= link_to 'Provider sign up', new_user_registration_path(@user), class: 'btn-lg btn-success' %>
+          <%= link_to 'Provider sign up', new_user_registration_path(@user), class: 'btn-success btn-lg' %>
         </div>
       </div>
     </div>
@@ -40,7 +40,9 @@
 
       <p>Manage a shelter with<br> unfullfiled food needs?</p>
       <div class="d-flex justify-content-center">
-        <button type="button" class="btn-lg btn-success">Shelter sign up</button>
+        <div>
+          <%= link_to 'Shelter sign up', new_user_registration_path(@user), class: 'btn-success btn-lg' %>
+        </div>
       </div>
     </div>
   </div>
