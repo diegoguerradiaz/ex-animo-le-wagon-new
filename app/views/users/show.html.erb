@@ -1,14 +1,26 @@
-<div class="container"> <!-- container begining -->
+<div class="container bg-secondary"> <!-- container begining -->
 
   <div class="row">
     <div class="col-10"> <!-- profile begining -->
-      <div class="row">
-        <div class="col-6"> <!-- profile image begining -->
-
+      <div class="row pt-5">
+        <div class="col-6 pt-2"> <!-- profile image begining -->
+          <div class="profile-img align-items-left my-2">
+            <%= cl_image_tag "#{@user.photo_url}" ,width: 200, height: 200 %>
+          </div>
         </div> <!-- profile image end -->
-        <div class="col-6"> <!-- general account settings begining -->
-
-        </div> <!-- general account settings begining -->
+        <div class="col-6 pt-2"> <!-- general account settings begining -->
+          <div class="act-settings-title pb-5">
+            <p class="act-title">General Account Settings</p>
+          </div>
+          <div class="act-settings-text">
+            <ul class="pl-0">
+              <li><b>Company name:</b> <%= @user.company_name %></li>
+              <li><b>Role:</b> <%= @user.role %></li>
+              <li><b>Category:</b> <%= @user.category %></li>
+              <li><b>Phone:</b> <%= @user.phone_number %></li>
+            </ul>
+          </div>
+        </div> <!-- general account settings end -->
       </div>  <!-- profile end -->
 
     </div>
