@@ -51,35 +51,42 @@
             </div>
 
             <div class="status-bar"> <!-- status begining -->
-              <div class="row">
-                <div class="col-6">
-                  <p>ACCEPTED</p>
-                </div>
-
-                <div class="col-6">
-                  <p>TEST 2</p>
-                </div>
-
-
-
-
+              <div class="line-separator">
+                <hr>
               </div>
-
-
+              <div class="row">
+                  <div class="col-6">
+                    <div>
+                      <p><b>ORDER STATUS</b></p>
+                    </div>
+                <% if order.stage === "Confirmed" %>
+                    <div>
+                      <p>ACCEPTED</p>
+                    </div>
+                <% elsif order.stage === "Pending Validation" %>
+                    <div>
+                      <p>PENDING</p>
+                    </div>
+                <% else %>
+                    <div>
+                      <p>CANCELLED</p>
+                    </div>
+                <% end %>
+                  </div>
+                <div class="col-6">
+                  <div class="pickup-time">
+                    <p><b>PICKUP TIME</b></p>
+                    <p><%= order.start_order_date.strftime("%b %-d, %Y - %H:%M") %></p>
+                    <p><%= order.end_order_date.strftime("%b %-d, %Y - %H:%M") %></p>
+                  </div>
+                </div>
+              </div>
             </div> <!-- status end -->
-
-
-
           </div> <!-- info inner end -->
-
-
         </div> <!-- info outer end -->
-
       </div>
     </div>
-
   <% end %> <!-- offer iteration end -->
-
 </div>
 
 
