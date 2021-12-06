@@ -94,3 +94,26 @@ body {
 .sign-up-form {
   flex-wrap: wrap;
 }
+
+// list items
+
+ul {
+  list-style-type: none;
+ }
+
+li {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.act-title {
+  font-size: 28px;
+}
+
+// user profiles
+
+.act-title {
+  background-color: #abcea9;
+  border-radius: 50px;
+  padding: 4px 12px;
+}

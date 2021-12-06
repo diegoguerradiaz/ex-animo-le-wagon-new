@@ -1,3 +1,73 @@
+<div class="container"> <!-- container begining -->
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-10"> <!-- profile begining -->
+
+      <div class="row pt-4 shadow p-3 p-5">
+        <div class="col-6 pt-2"> <!-- general account settings begining -->
+          <div class="act-settings-title pb-3">
+            <p class="act-title">General Account Settings</p>
+          </div>
+          <div class="act-settings-text">
+            <ul>
+              <li><b>Company name:</b> <%= @user.company_name %></li>
+              <li><b>Role:</b> <%= @user.role %></li>
+              <li><b>Category:</b> <%= @user.category %></li>
+              <li><b>Phone:</b> <%= @user.phone_number %></li>
+            </ul>
+          </div>
+          <div class="sec-login-title pb-3">
+            <p class="act-title">Security and Login</p>
+          </div>
+          <div class="sec-login">
+            <ul>
+              <li><b>Email:</b> <%= @user.email %></li>
+              <li><b>Password:</b> ********** </li>
+              <li><b>User ID:</b> <%= @user.id %></li>
+            </ul>
+          </div>
+        </div> <!-- general account settings end -->
+        <div class="col-6 pt-2"> <!-- profile image begining -->
+          <div class="profile-img pb-4">
+            <%= cl_image_tag "#{@user.photo_url}" ,width: 220, height: 220 %>
+          </div>
+        </div> <!-- profile image end -->
+      </div>  <!-- profile end -->
+
+      <div class="row"> <!-- profile bottom begining -->
+        <div class="col-6">
+
+        </div>
+        <div class="col-6">
+
+        </div>
+
+
+      </div> <!-- profile bottom end -->
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div> <!-- container end -->
+
+
+
+
+<!-- commented out old code
+
 <div class="banner">
   <div class="banner-body align-items-center">
     <div class="banner-text my-4 pl-4 pr-4">
@@ -89,3 +159,5 @@
     </div>
   </form>
 </div>
+
+commented out old code  -->
