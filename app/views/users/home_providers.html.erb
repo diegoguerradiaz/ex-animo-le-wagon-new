@@ -74,6 +74,10 @@
                           <p>PENDING</p>
                           <!-- <div class="third mt-4"> <button class="btn btn-info btn-block">Pending </button> -->
                         </div>
+                        <div class="third mt-4 ml-5 pl-4<">
+                          <%= link_to "Accept ", my_order_path(order, order: {stage: "Confirmed"}), method: :patch, class: "btn btn-outline-success"%>
+                          <%= link_to "Decline", my_order_path(order, order: {stage: "Canceled"}), method: :patch, class: "btn btn-outline-danger"%>
+                        </div>
                     <% else %>
                         <div>
                           <p>CANCELLED</p>
@@ -118,8 +122,8 @@
 
 
 
-<!--
 
+<!--
 
   <div class="container mt-5 d-flex justify-content-center">
       <div class="row">
@@ -194,6 +198,4 @@
         <% end %>
       </div>
   </div>
-
-
 -->
