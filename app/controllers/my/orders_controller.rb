@@ -8,7 +8,7 @@ class My::OrdersController < ApplicationController
   def update
     set_order
     @order.update(set_params)
-      redirect_to root_path
+    redirect_to home_providers_path(current_user)
   end
 
   def destroy
